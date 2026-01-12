@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceramic Bangladesh Magazine Clone</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#D32F2F', // Based on the "15th Issue" red section
+                        'brand-dark': '#1a1a1a',
+                        'brand-gray': '#f4f4f4'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar for magazine feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Slider Custom Height */
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            /* Magazine Width */
+            height: 400px;
+            /* Magazine Height */
+            /* 3D reflection effect optional */
+            -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation Buttons Customization */
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: #1a1a1a;
+            /* Black arrows */
+            font-weight: bold;
+        }
+
+        .swiper-button-next:after,
+        .swiper-rtl .swiper-button-prev:after {
+            content: 'next';
+            font-size: large;
+        }
+
+        .swiper-button-prev:after,
+        .swiper-rtl .swiper-button-next:after {
+            content: 'prev';
+            font-size: large;
+        }
+
+        /* বাম পাশের স্লাইড তার ডানদিকের কোণা থেকে ঘুরবে */
+        .swiper-slide-prev {
+            transform-origin: right center !important;
+
+        }
+
+        /* ডান পাশের স্লাইড তার বামদিকের কোণা থেকে ঘুরবে */
+        .swiper-slide-next {
+            transform-origin: left center !important;
+        }
+
+        /* মাঝখানের স্লাইড সোজাসুজি থাকবে */
+        .swiper-slide-active {
+            transform-origin: center center !important;
+            z-index: 10;
+            /* এটা সবার উপরে থাকবে */
+        }
+
+
+        /* --- 3. Partner Slider Styles --- */
+        .partner-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e5e7eb;
+            padding: 20px;
+            height: 100px;
+            background: white;
+            transition: border-color 0.3s;
+        }
+
+        .partner-slide:hover {
+            border-color: #333;
+        }
+
+        .partner-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            /* Optional: makes logos match screenshot style */
+            transition: filter 0.3s;
+        }
+
+        .partner-slide:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Custom Dots for Partner Slider */
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans">
+
+    <div class="border-b text-xs py-2 bg-gray-50 text-gray-500">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <a href="#"><i class="fas fa-home"></i></a>
+                <a href="#">About Us</a>
+                <a href="#">Committee</a>
+                <a href="#">Events</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="flex space-x-3">
+                <span><i class="fas fa-search"></i></span>
+                <span id="current-date">Monday, Oct 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="py-6 border-b-4 border-double border-gray-200">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="w-1/3">
+                <!-- <h1 class="font-serif text-4xl font-bold uppercase tracking-widest text-black">
+                    Ceramic <br><span
+                        class="text-xl font-normal tracking-wide text-gray-600 block mt-1">Bangladesh</span>
+                </h1> -->
+                <img src="CBM-logo-layer.png" alt="">
+            </div>
+
+            <div class="w-2/3 hidden md:block">
+                <div class="w-full h-24 bg-gray-200 flex items-center justify-center overflow-hidden relative">
+                    <img src="https://placehold.co/728x90/333/FFF?text=Advertisement+Banner" alt="Ad"
+                        class="object-cover w-full h-full">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <span class="text-white font-serif italic text-lg">Patterns that rewrite emotions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <ul class="flex justify-center space-x-8 py-4 font-semibold text-sm uppercase tracking-wide">
+                <li><a href="#" class="text-brand-red"><i class="fas fa-home"></i></a></li>
+                <li><a href="#" class="hover:text-brand-red">About Us</a></li>
+                <li><a href="#" class="hover:text-brand-red">Associates</a></li>
+                <li><a href="#" class="hover:text-brand-red">Articles</a></li>
+                <li><a href="#" class="hover:text-brand-red">Archive</a></li>
+                <li><a href="#" class="hover:text-brand-red">Career</a></li>
+                <li><a href="#" class="hover:text-brand-red font-bold">e-Magazine</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- hero section -->
+    <section class="container mx-auto px-4 mt-6">
+        <div class="relative w-full h-[450px] overflow-hidden group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+                alt="Featured Architecture"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8">
+                <span
+                    class="bg-brand-red text-white text-xs px-2 py-1 uppercase font-bold mb-2 inline-block">Architecture</span>
+                <h2 class="text-white font-serif text-3xl md:text-4xl font-bold leading-tight">
+                    Who's designing Taylor Swift's wedding dress after her engagement news?
+                </h2>
+                <p class="text-gray-300 text-sm mt-2">By Emran Masud | 2 Hours Ago</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ads -->
+    <div class="container mx-auto px-4 my-8">
+        <div class="w-full h-24 bg-gray-100 flex items-center justify-center border border-gray-200">
+            <span class="text-gray-400 text-sm tracking-widest">ADVERTISEMENT SPACE</span>
+        </div>
+    </div>
+
+    <!-- latest post -->
+    <section class="container mx-auto px-4 mb-12">
+        <div class="text-center mb-8 relative">
+            <h3 class="text-2xl font-serif font-bold uppercase inline-block bg-white px-4 relative z-10">Latest Post
+            </h3>
+            <div class="absolute inset-0 top-1/2 border-t border-gray-300 -z-0"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+
+            <aside class="md:col-span-3 border-r border-gray-200 pr-4">
+                <h4 class="font-bold text-lg mb-4 border-l-4 border-brand-red pl-2">Popular Post</h4>
+
+                <div class="flex gap-3 mb-4 group cursor-pointer">
+                    <img src="https://placehold.co/80x80" class="w-16 h-16 object-cover" alt="Thumb">
+                    <div>
+                        <span class="text-[10px] text-brand-red font-bold uppercase">Lifestyle</span>
+                        <h5 class="text-sm font-semibold leading-tight group-hover:text-brand-red">Lorem ipsum is simply
+                            dummy text</h5>
+                        <span class="text-[10px] text-gray-400">10 mins read</span>
+                    </div>
+                </div>
+                <div class="flex gap-3 mb-4 group cursor-pointer">
+                    <img src="https://placehold.co/80x80?text=Arch" class="w-16 h-16 object-cover" alt="Thumb">
+                    <div>
+                        <span class="text-[10px] text-brand-red font-bold uppercase">Design</span>
+                        <h5 class="text-sm font-semibold leading-tight group-hover:text-brand-red">Modern Architecture
+                            in Dhaka</h5>
+                        <span class="text-[10px] text-gray-400">12 mins read</span>
+                    </div>
+                </div>
+                <div class="flex gap-3 mb-4 group cursor-pointer">
+                    <img src="https://placehold.co/80x80?text=Tech" class="w-16 h-16 object-cover" alt="Thumb">
+                    <div>
+                        <span class="text-[10px] text-brand-red font-bold uppercase">Innovation</span>
+                        <h5 class="text-sm font-semibold leading-tight group-hover:text-brand-red">Sustainable Ceramics
+                            for Future</h5>
+                        <span class="text-[10px] text-gray-400">5 mins read</span>
+                    </div>
+                </div>
+                <div class="flex gap-3 mb-4 group cursor-pointer">
+                    <img src="https://placehold.co/80x80" class="w-16 h-16 object-cover" alt="Thumb">
+                    <div>
+                        <span class="text-[10px] text-brand-red font-bold uppercase">Lifestyle</span>
+                        <h5 class="text-sm font-semibold leading-tight group-hover:text-brand-red">Lorem ipsum is simply
+                            dummy text</h5>
+                        <span class="text-[10px] text-gray-400">10 mins read</span>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="md:col-span-9">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <article class="group">
+                        <div class="overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Article"
+                                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="text-center">
+                            <span
+                                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Architecture</span>
+                            <h3 class="text-xl font-serif font-bold mb-2 group-hover:text-brand-red">Lorem ipsum dolor
+                                sit amet, Lorem ipsum</h3>
+                            <p class="text-sm text-gray-500 italic">By Shama Nimkar</p>
+                        </div>
+                    </article>
+
+                    <article class="group">
+                        <div class="overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Article"
+                                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="text-center">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Real
+                                Estate</span>
+                            <h3 class="text-xl font-serif font-bold mb-2 group-hover:text-brand-red">Modern Interior
+                                Design Trends 2025</h3>
+                            <p class="text-sm text-gray-500 italic">By Shama Nimkar</p>
+                        </div>
+                    </article>
+
+                    <article class="group">
+                        <div class="overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Article"
+                                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="text-center">
+                            <span
+                                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Architecture</span>
+                            <h3 class="text-xl font-serif font-bold mb-2 group-hover:text-brand-red">Lorem ipsum dolor
+                                sit amet, Lorem ipsum</h3>
+                            <p class="text-sm text-gray-500 italic">By Shama Nimkar</p>
+                        </div>
+                    </article>
+
+                    <article class="group">
+                        <div class="overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Article"
+                                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="text-center">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Real
+                                Estate</span>
+                            <h3 class="text-xl font-serif font-bold mb-2 group-hover:text-brand-red">Lorem ipsum dolor
+                                sit amet, Lorem ipsum</h3>
+                            <p class="text-sm text-gray-500 italic">By Shama Nimkar</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- business insights -->
+    <section class="bg-gray-50 py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 relative">
+                <h3 class="text-2xl font-serif font-bold uppercase inline-block bg-gray-50 px-4 relative z-10">Business
+                    Insights</h3>
+                <div class="absolute inset-0 top-1/2 border-t border-gray-300 -z-0"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        class="w-full h-64 md:h-full object-cover">
+                    <div class="absolute bottom-0 p-4 bg-gradient-to-t from-black to-transparent w-full">
+                        <h4 class="text-white font-serif font-bold">Taylor Swift's Wedding Dress Designer Revealed?</h4>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="flex gap-3 bg-white p-2 shadow-sm">
+                        <img src="https://placehold.co/80x80" class="w-20 h-20 object-cover">
+                        <div>
+                            <span class="text-[10px] text-gray-400">2 Hours ago</span>
+                            <h5 class="text-sm font-bold leading-tight">The Lorem Ipsum simply dummy</h5>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 bg-white p-2 shadow-sm">
+                        <img src="https://placehold.co/80x80" class="w-20 h-20 object-cover">
+                        <div>
+                            <span class="text-[10px] text-gray-400">2 Hours ago</span>
+                            <h5 class="text-sm font-bold leading-tight">The Lorem Ipsum simply dummy</h5>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 bg-white p-2 shadow-sm">
+                        <img src="https://placehold.co/80x80" class="w-20 h-20 object-cover">
+                        <div>
+                            <span class="text-[10px] text-gray-400">2 Hours ago</span>
+                            <h5 class="text-sm font-bold leading-tight">The Lorem Ipsum simply dummy</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 p-4 border border-red-100 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/200x280?text=Magazine+Cover" class="shadow-lg mb-4 w-40">
+                    <h4 class="font-serif font-bold text-xl mb-2">Latest Issue Out Now</h4>
+                    <button
+                        class="bg-brand-red text-white px-6 py-2 text-sm font-bold uppercase hover:bg-red-700 transition">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- internation afiliations -->
+    <section class="container mx-auto px-4 py-8 border-t border-b border-gray-200 mt-8">
+        <h5 class="text-sm text-gray-500 uppercase mb-4">International Affiliations</h5>
+        <div
+            class="flex flex-wrap justify-between items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
+            <span class="font-bold text-2xl text-gray-400">ACIMAC</span>
+            <span class="font-bold text-2xl text-gray-400">CERAMIC</span>
+            <span class="font-bold text-2xl text-gray-400">UNIFAIR</span>
+            <span class="font-bold text-2xl text-gray-400">OPERA</span>
+            <span class="font-bold text-2xl text-gray-400">TECNARGILLA</span>
+        </div>
+    </section>
+
+    <!-- Ads -->
+    <section class="container mx-auto px-4 py-8">
+        <div class=" grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            <div class="h-32 bg-[#2c3e50] flex items-center justify-between px-8 relative overflow-hidden group">
+                <div class="z-10 text-white">
+                    <p class="font-handwriting text-3xl text-green-400 italic font-bold">Designed</p>
+                    <p class="text-sm tracking-widest uppercase mt-1">For Life</p>
+                </div>
+                <div class="z-10">
+                    <h3 class="text-white text-2xl font-bold border-l-2 border-white pl-2">dbl<br><span
+                            class="text-xs font-normal">ceramics</span></h3>
+                </div>
+                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform origin-bottom-right">
+                </div>
+            </div>
+
+            <div class="h-32 bg-[#f8d7da] flex items-center justify-between px-6 relative overflow-hidden">
+                <div class="z-10 w-1/2">
+                    <div class="bg-blue-600 text-white text-xs inline-block p-1 mb-2">PARAGON</div>
+                    <h4 class="text-blue-900 font-bold text-sm uppercase leading-tight">Paragon Ceramic Industries Ltd.
+                    </h4>
+                    <p class="text-[10px] text-gray-600 mt-2">H-43/B, R-123, Gulshan-1, Dhaka-1212</p>
+                </div>
+                <div class="z-10 w-1/2 flex justify-end">
+                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                        class="h-24 object-contain opacity-80 mix-blend-multiply">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- watch on -->
+    <section class="container mx-auto px-4 py-12">
+        <h3 class="text-xl font-bold uppercase mb-6">Watch On</h3>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-gray-100 p-6">
+            <div class="md:col-span-8 relative group">
+                <img src="https://placehold.co/800x450?text=Video+Thumbnail" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div
+                        class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg cursor-pointer hover:scale-110 transition">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="absolute bottom-4 left-4 text-white">
+                    <h3 class="text-2xl font-serif font-bold drop-shadow-md">15th Issue of Ceramic Bangladesh Magazine
+                    </h3>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 space-y-4">
+                <div class="flex gap-3 items-center bg-white p-2">
+                    <img src="https://placehold.co/100x60" class="w-24 object-cover">
+                    <p class="text-xs font-semibold">Lorem ipsum dolor sit amet, consectetur</p>
+                </div>
+                <div class="flex gap-3 items-center bg-white p-2">
+                    <img src="https://placehold.co/100x60" class="w-24 object-cover">
+                    <p class="text-xs font-semibold">Lorem ipsum dolor sit amet, consectetur</p>
+                </div>
+                <div class="flex gap-3 items-center bg-white p-2">
+                    <img src="https://placehold.co/100x60" class="w-24 object-cover">
+                    <p class="text-xs font-semibold">Lorem ipsum dolor sit amet, consectetur</p>
+                </div>
+                <div class="flex gap-3 items-center bg-white p-2">
+                    <img src="https://placehold.co/100x60" class="w-24 object-cover">
+                    <p class="text-xs font-semibold">Lorem ipsum dolor sit amet, consectetur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Ads -->
+    <section class="container mx-auto px-4 py-8">
+        <div class=" grid grid-cols-1 gap-4 mb-12">
+            <div class="h-32 bg-[#2c3e50] flex items-center justify-between px-8 relative overflow-hidden group">
+                <div class="z-10 text-white">
+                    <p class="font-handwriting text-3xl text-green-400 italic font-bold">Designed</p>
+                    <p class="text-sm tracking-widest uppercase mt-1">For Life</p>
+                </div>
+                <div class="z-10">
+                    <h3 class="text-white text-2xl font-bold border-l-2 border-white pl-2">dbl<br><span
+                            class="text-xs font-normal">ceramics</span></h3>
+                </div>
+                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform origin-bottom-right">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What our patron's say -->
+    <section class="relative w-full h-[400px] bg-fixed bg-cover bg-center flex items-center"
+        style="background-image: url('https://images.unsplash.com/photo-1588610389334-a06806a6b57d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');">
+        <div class="absolute inset-0 bg-white/90"></div>
+        <div class="container mx-auto px-4 relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+            <div>
+                <h2 class="text-4xl font-serif font-bold text-brand-red mb-2">15th Issue</h2>
+                <h3 class="text-3xl font-serif font-bold text-black mb-4">of Ceramic Bangladesh Magazine</h3>
+                <p class="text-gray-600 mb-6">Explore the latest trends in ceramic architecture and design.</p>
+                <button
+                    class="bg-brand-red text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-red-800 transition">SUBSCRIBE
+                    NOW</button>
+            </div>
+            <div class="flex justify-center">
+                <img src="https://placehold.co/300x400?text=Magazine+Cover"
+                    class="shadow-2xl rotate-3 border-4 border-white">
+            </div>
+        </div>
+    </section>
+
+    <!-- Ads -->
+    <section class="container mx-auto px-4 py-8">
+        <div class=" grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            <div class="h-32 bg-[#2c3e50] flex items-center justify-between px-8 relative overflow-hidden group">
+                <div class="z-10 text-white">
+                    <p class="font-handwriting text-3xl text-green-400 italic font-bold">Designed</p>
+                    <p class="text-sm tracking-widest uppercase mt-1">For Life</p>
+                </div>
+                <div class="z-10">
+                    <h3 class="text-white text-2xl font-bold border-l-2 border-white pl-2">dbl<br><span
+                            class="text-xs font-normal">ceramics</span></h3>
+                </div>
+                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform origin-bottom-right">
+                </div>
+            </div>
+
+            <div class="h-32 bg-[#f8d7da] flex items-center justify-between px-6 relative overflow-hidden">
+                <div class="z-10 w-1/2">
+                    <div class="bg-blue-600 text-white text-xs inline-block p-1 mb-2">PARAGON</div>
+                    <h4 class="text-blue-900 font-bold text-sm uppercase leading-tight">Paragon Ceramic Industries Ltd.
+                    </h4>
+                    <p class="text-[10px] text-gray-600 mt-2">H-43/B, R-123, Gulshan-1, Dhaka-1212</p>
+                </div>
+                <div class="z-10 w-1/2 flex justify-end">
+                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+                        class="h-24 object-contain opacity-80 mix-blend-multiply">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3d slider -->
+    <section>
+        <div class="relative max-w-5xl mx-auto">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
+                        <div class="absolute top-8 right-8 text-black text-right">
+                            <span class="font-bold text-xl uppercase">Ceramic <br> <span
+                                    class="text-xs font-normal">Bangladesh</span></span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1767963758785-b9def36c13e3?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="">
+                        <div class="absolute top-8 right-8 text-black text-right">
+                            <span
+                                class="text-[180px] leading-none font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-red-600 filter drop-shadow-lg">5</span>
+                            <span
+                                class="absolute bottom-4 right-[-20px] text-white font-handwriting text-4xl italic">Anniversary</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
+                        <div class="absolute top-8 right-8 text-black text-right">
+                            <span class="font-bold text-xl uppercase">Ceramic <br> <span
+                                    class="text-xs font-normal">Bangladesh</span></span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
+                        <div class="absolute top-8 right-8 text-black text-right">
+                            <span class="font-bold text-xl uppercase">Ceramic <br> <span
+                                    class="text-xs font-normal">Bangladesh</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Our Partners -->
+    <section class="mb-12 max-w-7xl mx-auto px-4 py-6">
+        <h2 class="text-2xl font-semibold mb-6 text-black">Our Partners</h2>
+
+        <div class="swiper partnerSwiper pb-12">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide partner-slide">
+                    <img src="https://placehold.co/150x60?text=BHL+CERAMIC" alt="Partner">
+                </div>
+                <div class="swiper-slide partner-slide">
+                    <img src="https://placehold.co/150x60?text=Excellent+Group" alt="Partner">
+                </div>
+                <div class="swiper-slide partner-slide">
+                    <img src="https://placehold.co/150x60?text=CBC+Tiles" alt="Partner">
+                </div>
+                <div class="swiper-slide partner-slide">
+                    <img src="https://placehold.co/150x60?text=COLOROBBIA" alt="Partner">
+                </div>
+                <div class="swiper-slide partner-slide">
+                    <img src="https://placehold.co/150x60?text=dbl+CERAMICS" alt="Partner">
+                </div>
+                <div class="swiper-slide partner-slide">
+                    <img src="https://placehold.co/150x60?text=RAK+Ceramics" alt="Partner">
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Ads -->
+    <section class="container mx-auto px-4 py-8">
+        <div class=" grid grid-cols-1 gap-4 mb-12">
+            <div class="h-32 bg-[#2c3e50] flex items-center justify-between px-8 relative overflow-hidden group">
+                <div class="z-10 text-white">
+                    <p class="font-handwriting text-3xl text-green-400 italic font-bold">Designed</p>
+                    <p class="text-sm tracking-widest uppercase mt-1">For Life</p>
+                </div>
+                <div class="z-10">
+                    <h3 class="text-white text-2xl font-bold border-l-2 border-white pl-2">dbl<br><span
+                            class="text-xs font-normal">ceramics</span></h3>
+                </div>
+                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform origin-bottom-right">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#eeffff] pt-16 pb-8 text-[#1a1a1a] font-sans">
+        <div class="container mx-auto px-4 md:px-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+
+                <div class="md:col-span-4">
+                    <h3 class="font-serif font-bold text-xl mb-4">About Us</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-8 pr-4">
+                        Ceramic Bangladesh: Bi-monthly magazine on architecture, real estate, lifestyle, and ceramics;
+                        influencing global industry leaders.
+                    </p>
+
+                    <div class="flex items-center gap-6">
+                        <div>
+                            <img src="CBM-logo-layer.png" class="w-24" alt="">
+                            <!-- <h4 class="font-serif font-bold text-lg uppercase leading-none tracking-wide">Ceramic<br><span class="text-sm font-normal">Bangladesh</span></h4>
+                        <p class="text-[8px] uppercase tracking-widest mt-1">Architecture | Real Estate | Construction | Lifestyle</p> -->
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <span class="text-[10px] font-bold text-gray-500 mb-1">Supported By</span>
+                            <img src="bcmea-logo.webp" class="w-24" alt="BCMEA Logo">
+                            <!-- <img src="https://placehold.co/60x60/transparent/orange?text=BCMEA" alt="BCMEA Logo" class="h-12 object-contain grayscale opacity-80"> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 mx-auto">
+                    <h3 class="font-serif font-bold text-xl mb-4">Quick Links</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-black hover:underline transition">Write for us</a></li>
+                        <li><a href="#" class="hover:text-black hover:underline transition">Feature with us</a></li>
+                        <li><a href="#" class="hover:text-black hover:underline transition">Home</a></li>
+                        <li><a href="#" class="hover:text-black hover:underline transition">Articles</a></li>
+                        <li><a href="#" class="hover:text-black hover:underline transition">Associates</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4  gap-8">
+
+                    <div>
+                        <h3 class="font-serif font-bold text-xl mb-4">For Advertisement</h3>
+                        <p class="text-sm text-gray-600 mb-3 font-medium">+880 1711 202 170</p>
+                        <a href="mailto:magazine@ceramicbangladesh.com"
+                            class="text-sm text-blue-600 hover:text-blue-800 transition">magazine@ceramicbangladesh.com</a>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold text-xl mt-4 mb-4">Subscribe to our Newsletter</h3>
+                        <form action="#" class="relative">
+                            <input type="email" placeholder="Your Email Address"
+                                class="w-full bg-transparent border border-gray-400 rounded-full px-5 py-2.5 text-sm focus:outline-none focus:border-black placeholder-gray-400 transition">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t-4 border-double border-gray-300 my-8"></div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+
+                <p>&copy; Ceramic Bangladesh Magazine. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#"
+                        class="w-8 h-8 flex items-center justify-center rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 flex items-center justify-center rounded-full border border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 flex items-center justify-center rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 flex items-center justify-center rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 flex items-center justify-center rounded-full border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            loop: true, // Infinite loop
+            coverflowEffect: {
+                rotate: 30,       // Angle of the side slides (matches the 3D fold look)
+                stretch: 0,       // Spacing between slides (0 makes them touch like a box)
+                depth: 100,       // Perspective depth
+                modifier: 1,      // Effect multiplier
+                slideShadows: true, // Shadows for realism
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
+    <script>
+        // 2. Initialize Partner Slider (Carousel)
+        const partnerSwiper = new Swiper('.partnerSwiper', {
+            slidesPerView: 2, // Mobile default
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
