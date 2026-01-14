@@ -51,15 +51,81 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+         /* --- Hero Slider Customization --- */
+        .hero-slider {
+            width: 100%;
+            height: 100%;
+        }
+        .hero-pagination {
+            /* ১. ডিফল্ট স্টাইল বাতিল করা (Override) */
+            bottom: auto !important;  
+            left: auto !important;
+            width: auto !important;   /* এটা খুব জরুরি, নাহলে পুরো লাইন দখল করে রাখবে */
+
+            /* ২. নতুন পজিশন সেট করা (ডান পাশে এবং মাঝখানে) */
+            right: 30px !important;   /* ডান দিক থেকে দূরত্ব */
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            
+            /* ৩. ডটগুলো লম্বালম্বি সাজানো */
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 50;
+        }
+        
+        .hero-pagination .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #000; /* Black dots */
+            opacity: 0.8;
+            margin: 5px 0 !important;
+        }
+        
+        .hero-pagination .swiper-pagination-bullet-active {
+            background: #D32F2F; /* Red active dot */
+            opacity: 1;
+        }
+
+       /* Navigation Arrows Customization */
+        .swiper-button-prev, .swiper-button-next {
+            color: #D32F2F;
+            width: 40px;
+            height: 40px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* বাটনগুলোর আইকন সাইজ */
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+
+        /* --- পজিশন ফিক্স (Main Solution) --- */
+
+        /* বাম পাশের অ্যারো একটু ভেতরে আনা */
+        .swiper-button-prev {
+            left: 30px !important; 
+        }
+
+        /* ডান পাশের অ্যারো ডটগুলোর বামে আনা */
+        .swiper-button-next {
+            right: 60px !important; /* ডট আছে 30px এ, তাই অ্যারো দিলাম 60px এ */
+        }
+
+
 
         /* Slider Custom Height */
-        .swiper {
+        .swiper-3d-slider {
             width: 100%;
             padding-top: 50px;
             padding-bottom: 50px;
         }
 
-        .swiper-slide {
+        .swiper-slide-custom {
             background-position: center;
             background-size: cover;
             width: 300px;
@@ -70,7 +136,7 @@
             -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
         }
 
-        .swiper-slide img {
+        .swiper-slide-custom img {
             display: block;
             width: 100%;
             height: 100%;
@@ -81,7 +147,7 @@
         /* Navigation Buttons Customization */
         .swiper-button-prev,
         .swiper-button-next {
-            color: #1a1a1a;
+            /* color: #1a1a1a; */
             /* Black arrows */
             font-weight: bold;
         }
@@ -181,20 +247,13 @@
     <header class="py-6 border-b-4 border-double border-gray-200">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="w-1/3">
-                <!-- <h1 class="font-serif text-4xl font-bold uppercase tracking-widest text-black">
-                    Ceramic <br><span
-                        class="text-xl font-normal tracking-wide text-gray-600 block mt-1">Bangladesh</span>
-                </h1> -->
-                <img src="CBM-logo-layer.png" alt="">
+                <img src="assets/imgs/CBM-logo-layer.png" alt="Ceramic Bangladesh Magazine Logo" class="w-56">
             </div>
 
             <div class="w-2/3 hidden md:block">
                 <div class="w-full h-24 bg-gray-200 flex items-center justify-center overflow-hidden relative">
-                    <img src="https://placehold.co/728x90/333/FFF?text=Advertisement+Banner" alt="Ad"
+                    <img src="assets/imgs/CBM-WEB-AD-NEW-YEAR-2026-01-scaled.jpg" alt="Ad"
                         class="object-cover w-full h-full">
-                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-                        <span class="text-white font-serif italic text-lg">Patterns that rewrite emotions</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -214,27 +273,91 @@
         </div>
     </nav>
     <!-- hero section -->
-    <section class="container mx-auto px-4 mt-6">
-        <div class="relative w-full h-[450px] overflow-hidden group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
-                alt="Featured Architecture"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+    <section class="container mx-auto px-4 mt-6 mb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[500px]">
+            <div class="lg:col-span-3 relative h-full w-full bg-gray-100 overflow-hidden">
+                <div class="swiper heroSwiper hero-slider">
+                    <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide relative">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
+                                 class="w-full h-full object-cover" alt="Architecture">
+                            
+                            <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/60 to-transparent text-white">
+                                <h2 class="font-serif text-3xl md:text-4xl font-bold leading-tight mb-3 drop-shadow-md">
+                                    Who's designing Taylor Swift's wedding dress after her engagement news?
+                                </h2>
+                                <div class="flex items-center gap-4 text-sm font-semibold">
+                                    <span class="uppercase tracking-wide">By Emmelyn Mah</span>
+                                    </div>
+                                <p class="text-[#D32F2F] font-bold mt-2 text-lg">11 min read</p>
+                            </div>
+                        </div>
 
-            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8">
-                <span
-                    class="bg-brand-red text-white text-xs px-2 py-1 uppercase font-bold mb-2 inline-block">Architecture</span>
-                <h2 class="text-white font-serif text-3xl md:text-4xl font-bold leading-tight">
-                    Who's designing Taylor Swift's wedding dress after her engagement news?
-                </h2>
-                <p class="text-gray-300 text-sm mt-2">By Emran Masud | 2 Hours Ago</p>
+                        <div class="swiper-slide relative">
+                            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
+                                 class="w-full h-full object-cover" alt="Slide 2">
+                             <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/60 to-transparent text-white">
+                                <h2 class="font-serif text-3xl md:text-4xl font-bold leading-tight mb-3 drop-shadow-md">
+                                    Modern Brutalism: The Return of Concrete in Dhaka
+                                </h2>
+                                <div class="flex items-center gap-4 text-sm font-semibold">
+                                    <span class="uppercase tracking-wide">By Tanvir Hasan</span>
+                                </div>
+                                <p class="text-[#D32F2F] font-bold mt-2 text-lg">8 min read</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide relative">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
+                                 class="w-full h-full object-cover" alt="Slide 3">
+                             <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/60 to-transparent text-white">
+                                <h2 class="font-serif text-3xl md:text-4xl font-bold leading-tight mb-3 drop-shadow-md">
+                                    Sustainable Ceramics: A Future Perspective
+                                </h2>
+                                <div class="flex items-center gap-4 text-sm font-semibold">
+                                    <span class="uppercase tracking-wide">By Emran Masud</span>
+                                </div>
+                                <p class="text-[#D32F2F] font-bold mt-2 text-lg">5 min read</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+
+                    <div class="swiper-pagination hero-pagination"></div>
+                </div>
             </div>
+
+            <div class="lg:col-span-1 h-full flex flex-col">
+                <div class="relative flex-grow bg-gray-200 overflow-hidden">
+                    <img src="assets/imgs/Sheltech-Prime-1Mx1M-tiles-ad-400X400px-2024.jpg" alt="Magazine Cover" class="w-full h-full object-cover">
+                    
+                    <div class="absolute bottom-4 left-4 text-white drop-shadow-md">
+                        <p class="font-handwriting text-xl italic">Shaping Bangladesh</p>
+                    </div>
+                </div>
+
+                <div class="bg-white py-3 flex justify-center border-l border-r border-gray-200">
+                    <button class="bg-[#dcdcdc] text-gray-700 px-6 py-1 rounded-full text-sm font-serif font-bold uppercase tracking-wider hover:bg-gray-300 transition">
+                        Latest Issue
+                    </button>
+                </div>
+
+                <div class="bg-[#8ab6d6] py-3 text-center cursor-pointer hover:bg-[#7aa5c5] transition">
+                    <span class="text-white text-sm font-bold uppercase tracking-widest border-b border-white pb-0.5">See More</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Ads -->
     <div class="container mx-auto px-4 my-8">
-        <div class="w-full h-24 bg-gray-100 flex items-center justify-center border border-gray-200">
-            <span class="text-gray-400 text-sm tracking-widest">ADVERTISEMENT SPACE</span>
+        <div class="w-full bg-gray-100 flex items-center justify-center border border-gray-200">
+             <img src="assets/imgs/Subscription-Banner-01-1-scaled.jpg" alt="Ad Banner" class="object-cover w-full h-full">
         </div>
     </div>
 
@@ -424,31 +547,12 @@
 
     <!-- Ads -->
     <section class="container mx-auto px-4 py-8">
-        <div class=" grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-            <div class="h-32 bg-[#2c3e50] flex items-center justify-between px-8 relative overflow-hidden group">
-                <div class="z-10 text-white">
-                    <p class="font-handwriting text-3xl text-green-400 italic font-bold">Designed</p>
-                    <p class="text-sm tracking-widest uppercase mt-1">For Life</p>
-                </div>
-                <div class="z-10">
-                    <h3 class="text-white text-2xl font-bold border-l-2 border-white pl-2">dbl<br><span
-                            class="text-xs font-normal">ceramics</span></h3>
-                </div>
-                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform origin-bottom-right">
-                </div>
+        <div class=" grid grid-cols-1 md:grid-cols-2">
+            <div class="h-32 w-full  flex items-center justify-between  relative overflow-hidden group">
+                <img src="assets/imgs/OMERA.png" alt="" class="w-full">
             </div>
-
-            <div class="h-32 bg-[#f8d7da] flex items-center justify-between px-6 relative overflow-hidden">
-                <div class="z-10 w-1/2">
-                    <div class="bg-blue-600 text-white text-xs inline-block p-1 mb-2">PARAGON</div>
-                    <h4 class="text-blue-900 font-bold text-sm uppercase leading-tight">Paragon Ceramic Industries Ltd.
-                    </h4>
-                    <p class="text-[10px] text-gray-600 mt-2">H-43/B, R-123, Gulshan-1, Dhaka-1212</p>
-                </div>
-                <div class="z-10 w-1/2 flex justify-end">
-                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-                        class="h-24 object-contain opacity-80 mix-blend-multiply">
-                </div>
+            <div class="h-32 w-full flex items-center justify-between relative overflow-hidden">
+                <img src="assets/imgs/570-px-X-115-px-01.jpg" alt="" class="w-full">
             </div>
         </div>
     </section>
@@ -457,21 +561,22 @@
     <section class="container mx-auto px-4 py-12">
         <h3 class="text-xl font-bold uppercase mb-6">Watch On</h3>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-gray-100 p-6">
-            <div class="md:col-span-8 relative group">
-                <img src="https://placehold.co/800x450?text=Video+Thumbnail" class="w-full h-full object-cover">
-                <div class="absolute inset-0 flex items-center justify-center">
+            <div class="md:col-span-7 relative group">
+                <!-- <img src="https://placehold.co/800x450?text=Video+Thumbnail" class="w-full h-full object-cover"> -->
+                 <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/IzKCrb5iGJ0" title="BCMEA 3 Successful Events #Ceramic #Ceramicbangladesh #Ceramicexpo #BCMEA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- <div class="absolute inset-0 flex items-center justify-center">
                     <div
                         class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg cursor-pointer hover:scale-110 transition">
                         <i class="fas fa-play"></i>
                     </div>
-                </div>
-                <div class="absolute bottom-4 left-4 text-white">
+                </div> -->
+                <div class=" bottom-4 left-4">
                     <h3 class="text-2xl font-serif font-bold drop-shadow-md">15th Issue of Ceramic Bangladesh Magazine
                     </h3>
                 </div>
             </div>
 
-            <div class="md:col-span-4 space-y-4">
+            <div class="md:col-span-5 space-y-4">
                 <div class="flex gap-3 items-center bg-white p-2">
                     <img src="https://placehold.co/100x60" class="w-24 object-cover">
                     <p class="text-xs font-semibold">Lorem ipsum dolor sit amet, consectetur</p>
@@ -488,33 +593,24 @@
                     <img src="https://placehold.co/100x60" class="w-24 object-cover">
                     <p class="text-xs font-semibold">Lorem ipsum dolor sit amet, consectetur</p>
                 </div>
+                
             </div>
         </div>
     </section>
 
 
     <!-- Ads -->
-    <section class="container mx-auto px-4 py-8">
-        <div class=" grid grid-cols-1 gap-4 mb-12">
-            <div class="h-32 bg-[#2c3e50] flex items-center justify-between px-8 relative overflow-hidden group">
-                <div class="z-10 text-white">
-                    <p class="font-handwriting text-3xl text-green-400 italic font-bold">Designed</p>
-                    <p class="text-sm tracking-widest uppercase mt-1">For Life</p>
-                </div>
-                <div class="z-10">
-                    <h3 class="text-white text-2xl font-bold border-l-2 border-white pl-2">dbl<br><span
-                            class="text-xs font-normal">ceramics</span></h3>
-                </div>
-                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform origin-bottom-right">
-                </div>
-            </div>
+
+    <section class="container mx-auto px-4 my-8">
+        <div class="w-full bg-gray-100 flex items-center justify-center border border-gray-200">
+             <img src="assets/imgs/Subscription-Banner-01-1-scaled.jpg" alt="Ad Banner" class="object-cover w-full h-full">
         </div>
     </section>
 
     <!-- What our patron's say -->
-    <section class="relative w-full h-[400px] bg-fixed bg-cover bg-center flex items-center"
-        style="background-image: url('https://images.unsplash.com/photo-1588610389334-a06806a6b57d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');">
-        <div class="absolute inset-0 bg-white/90"></div>
+    <section class="container mx-auto px-4 w-full h-[500px] bg-fixed bg-cover bg-center flex items-center"
+        >
+        <!-- <div class="absolute inset-0 bg-white/90"></div>
         <div class="container mx-auto px-4 relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
             <div>
                 <h2 class="text-4xl font-serif font-bold text-brand-red mb-2">15th Issue</h2>
@@ -528,7 +624,8 @@
                 <img src="https://placehold.co/300x400?text=Magazine+Cover"
                     class="shadow-2xl rotate-3 border-4 border-white">
             </div>
-        </div>
+        </div> -->
+        <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/IzKCrb5iGJ0" title="BCMEA 3 Successful Events #Ceramic #Ceramicbangladesh #Ceramicexpo #BCMEA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
 
     <!-- Ads -->
@@ -565,10 +662,10 @@
     <!-- 3d slider -->
     <section>
         <div class="relative max-w-5xl mx-auto">
-            <div class="swiper mySwiper">
+            <div class="swiper mySwiper swiper-3d-slider">
                 <div class="swiper-wrapper">
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide swiper-slide-custom">
                         <img
                             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
                         <div class="absolute top-8 right-8 text-black text-right">
@@ -577,7 +674,7 @@
                         </div>
                     </div>
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide swiper-slide-custom">
                         <img src="https://images.unsplash.com/photo-1767963758785-b9def36c13e3?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="">
                         <div class="absolute top-8 right-8 text-black text-right">
@@ -588,7 +685,7 @@
                         </div>
                     </div>
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide swiper-slide-custom">
                         <img
                             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
                         <div class="absolute top-8 right-8 text-black text-right">
@@ -597,7 +694,7 @@
                         </div>
                     </div>
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide swiper-slide-custom">
                         <img
                             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
                         <div class="absolute top-8 right-8 text-black text-right">
@@ -802,6 +899,25 @@
                     slidesPerView: 5,
                     spaceBetween: 30,
                 },
+            },
+        });
+    </script>
+
+        <script>
+        var swiper = new Swiper(".heroSwiper", {
+            loop: true,
+            effect: "fade", // ফেড ইফেক্ট দিলে ম্যাগাজিন লুক ভালো আসে, চাইলে 'slide' দিতে পারো
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
         });
     </script>
