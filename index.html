@@ -7,15 +7,13 @@
     <title>Ceramic Bangladesh Magazine Clone</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
+    <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
             theme: {
@@ -33,197 +31,6 @@
             }
         }
     </script>
-
-    <style>
-        /* Custom Scrollbar for magazine feel */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-         /* --- Hero Slider Customization --- */
-        .hero-slider {
-            width: 100%;
-            height: 100%;
-        }
-        .hero-pagination {
-            /* ১. ডিফল্ট স্টাইল বাতিল করা (Override) */
-            bottom: auto !important;  
-            left: auto !important;
-            width: auto !important;   /* এটা খুব জরুরি, নাহলে পুরো লাইন দখল করে রাখবে */
-
-            /* ২. নতুন পজিশন সেট করা (ডান পাশে এবং মাঝখানে) */
-            right: 30px !important;   /* ডান দিক থেকে দূরত্ব */
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            
-            /* ৩. ডটগুলো লম্বালম্বি সাজানো */
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 50;
-        }
-        
-        .hero-pagination .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
-            background: #000; /* Black dots */
-            opacity: 0.8;
-            margin: 5px 0 !important;
-        }
-        
-        .hero-pagination .swiper-pagination-bullet-active {
-            background: #D32F2F; /* Red active dot */
-            opacity: 1;
-        }
-
-       /* Navigation Arrows Customization */
-        .swiper-button-prev, .swiper-button-next {
-            color: #D32F2F;
-            width: 40px;
-            height: 40px;
-            
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* বাটনগুলোর আইকন সাইজ */
-        .swiper-button-next::after, .swiper-button-prev::after {
-            font-size: 20px !important;
-            font-weight: bold;
-        }
-
-        /* --- পজিশন ফিক্স (Main Solution) --- */
-
-        /* বাম পাশের অ্যারো একটু ভেতরে আনা */
-        .swiper-button-prev {
-            left: 30px !important; 
-        }
-
-        /* ডান পাশের অ্যারো ডটগুলোর বামে আনা */
-        .swiper-button-next {
-            right: 60px !important; /* ডট আছে 30px এ, তাই অ্যারো দিলাম 60px এ */
-        }
-
-
-
-        /* Slider Custom Height */
-        .swiper-3d-slider {
-            width: 100%;
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .swiper-slide-custom {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            /* Magazine Width */
-            height: 400px;
-            /* Magazine Height */
-            /* 3D reflection effect optional */
-            -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
-        }
-
-        .swiper-slide-custom img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Navigation Buttons Customization */
-        .swiper-button-prev,
-        .swiper-button-next {
-            /* color: #1a1a1a; */
-            /* Black arrows */
-            font-weight: bold;
-        }
-
-        .swiper-button-next:after,
-        .swiper-rtl .swiper-button-prev:after {
-            content: 'next';
-            font-size: large;
-        }
-
-        .swiper-button-prev:after,
-        .swiper-rtl .swiper-button-next:after {
-            content: 'prev';
-            font-size: large;
-        }
-
-        /* বাম পাশের স্লাইড তার ডানদিকের কোণা থেকে ঘুরবে */
-        .swiper-slide-prev {
-            transform-origin: right center !important;
-
-        }
-
-        /* ডান পাশের স্লাইড তার বামদিকের কোণা থেকে ঘুরবে */
-        .swiper-slide-next {
-            transform-origin: left center !important;
-        }
-
-        /* মাঝখানের স্লাইড সোজাসুজি থাকবে */
-        .swiper-slide-active {
-            transform-origin: center center !important;
-            z-index: 10;
-            /* এটা সবার উপরে থাকবে */
-        }
-
-
-        /* --- 3. Partner Slider Styles --- */
-        .partner-slide {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #e5e7eb;
-            padding: 20px;
-            height: 100px;
-            background: white;
-            transition: border-color 0.3s;
-        }
-
-        .partner-slide:hover {
-            border-color: #333;
-        }
-
-        .partner-slide img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: grayscale(100%);
-            /* Optional: makes logos match screenshot style */
-            transition: filter 0.3s;
-        }
-
-        .partner-slide:hover img {
-            filter: grayscale(0%);
-        }
-
-        /* Custom Dots for Partner Slider */
-        .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
-            background: #ccc;
-            opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: #333;
-        }
-    </style>
 </head>
 
 <body class="bg-white text-gray-800 font-sans">
@@ -610,21 +417,7 @@
     <!-- What our patron's say -->
     <section class="container mx-auto px-4 w-full h-[500px] bg-fixed bg-cover bg-center flex items-center"
         >
-        <!-- <div class="absolute inset-0 bg-white/90"></div>
-        <div class="container mx-auto px-4 relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-            <div>
-                <h2 class="text-4xl font-serif font-bold text-brand-red mb-2">15th Issue</h2>
-                <h3 class="text-3xl font-serif font-bold text-black mb-4">of Ceramic Bangladesh Magazine</h3>
-                <p class="text-gray-600 mb-6">Explore the latest trends in ceramic architecture and design.</p>
-                <button
-                    class="bg-brand-red text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-red-800 transition">SUBSCRIBE
-                    NOW</button>
-            </div>
-            <div class="flex justify-center">
-                <img src="https://placehold.co/300x400?text=Magazine+Cover"
-                    class="shadow-2xl rotate-3 border-4 border-white">
-            </div>
-        </div> -->
+
         <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/IzKCrb5iGJ0" title="BCMEA 3 Successful Events #Ceramic #Ceramicbangladesh #Ceramicexpo #BCMEA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
 
@@ -850,77 +643,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            loop: true, // Infinite loop
-            coverflowEffect: {
-                rotate: 30,       // Angle of the side slides (matches the 3D fold look)
-                stretch: 0,       // Spacing between slides (0 makes them touch like a box)
-                depth: 100,       // Perspective depth
-                modifier: 1,      // Effect multiplier
-                slideShadows: true, // Shadows for realism
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
-    </script>
-    <script>
-        // 2. Initialize Partner Slider (Carousel)
-        const partnerSwiper = new Swiper('.partnerSwiper', {
-            slidesPerView: 2, // Mobile default
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 3,
-                },
-                768: {
-                    slidesPerView: 4,
-                },
-                1024: {
-                    slidesPerView: 5,
-                    spaceBetween: 30,
-                },
-            },
-        });
-    </script>
-
-        <script>
-        var swiper = new Swiper(".heroSwiper", {
-            loop: true,
-            effect: "fade", // ফেড ইফেক্ট দিলে ম্যাগাজিন লুক ভালো আসে, চাইলে 'slide' দিতে পারো
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
