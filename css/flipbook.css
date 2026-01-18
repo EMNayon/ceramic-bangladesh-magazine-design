@@ -1,0 +1,169 @@
+
+.flipbook {
+    margin: 0;
+    background: #525659; /* PDF Viewer এর মতো ব্যাকগ্রাউন্ড */
+    display: flex;
+    flex-direction: column; /* টুলবার নিচে রাখার জন্য */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+/* Scene Container - জুম করার জন্য একে টার্গেট করা হবে */
+.scene-container {
+    flex-grow: 1;
+    /* বাকি জায়গা জুড়ে থাকবে */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.scene {
+    width: 900px;
+    height: 600px;
+    perspective: 2000px;
+    transition: transform 0.3s ease;
+    /* জুম স্মুথ করার জন্য */
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    background: #fff;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(.4, .2, .2, 1);
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: white;
+    overflow: hidden;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.page.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Navigation Buttons (Side Arrows) */
+.flip-nav {
+    position: absolute;
+    /* top: 50%; */
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    /* একটু গাড় কালার */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.flip-nav:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#prev {
+    left: 20px;
+    display: none;
+}
+
+#next {
+    right: 20px;
+}
+
+
+/* 🟢 নতুন যুক্ত করা টুলবার স্টাইল (New Toolbar Styles) */
+.toolbar {
+    height: 50px;
+    background: #fff;
+    border-radius: 25px;
+    /* ছবির মতো গোলকাকার */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    /* নিচ থেকে একটু উপরে */
+    z-index: 10000;
+    justify-content: center;
+}
+
+.page-count {
+    font-weight: bold;
+    color: #333;
+    min-width: 80px;
+    text-align: center;
+}
+
+.tool-btn {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool-btn:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* মাঝখানের দাগ */
+.divider {
+    height: 25px;
+    width: 1px;
+    background: #ddd;
+}
+
+
+
+
