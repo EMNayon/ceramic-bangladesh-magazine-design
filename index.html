@@ -1425,95 +1425,105 @@
       </div>
     </div>
   </footer>
-  <div id="switcher-panel"
-    class="fixed bottom-5 right-5 z-50 flex flex-col bg-white rounded-xl shadow-2xl border border-gray-200 w-52 transition-all duration-300">
 
-    <div onclick="toggleSwitcher()"
-      class="bg-gray-800 text-white p-3 rounded-t-xl cursor-pointer flex justify-between items-center hover:bg-gray-700 transition">
+  <div id="settings-panel"
+    class="fixed bottom-5 right-5 z-50 flex flex-col bg-white rounded-xl shadow-2xl border border-gray-200 w-64 transition-all duration-300 font-sans">
+
+    <div onclick="toggleSettings()"
+      class="bg-gray-900 text-white p-4 rounded-t-xl cursor-pointer flex justify-between items-center hover:bg-gray-800 transition shadow-lg">
       <span class="text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-        <i class="fas fa-palette"></i>Footer Style Select
+        <i class="fas fa-sliders-h"></i> Layout Settings
       </span>
-      <i id="switcher-icon" class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
+      <i id="settings-icon" class="fas fa-chevron-up text-xs transition-transform duration-300"></i>
     </div>
 
-    <div id="switcher-content" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
-      <div class="p-4 flex flex-col gap-2 max-h-[400px] overflow-y-auto">
+    <div id="settings-content"
+      class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white rounded-b-xl">
+      <div class="max-h-[500px] overflow-y-auto custom-scrollbar">
 
-        <button onclick="switchFooter('footer-1')"
-          class="px-3 py-2 bg-gray-50 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200">
-          1. Corporate Light
-        </button>
+        <div class="p-4 border-b border-gray-100">
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+            <i class="fas fa-heading"></i> Header Style
+          </p>
+          <div class="flex flex-col gap-2">
+            <button onclick="setHeaderLayout('ads')"
+              class="px-3 py-2 bg-gray-50 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200 flex items-center gap-2 group">
+              <i class="fas fa-ad text-gray-400 group-hover:text-white transition"></i> Show Ads (Default)
+            </button>
 
-        <button onclick="switchFooter('footer-2')"
-          class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left w-full transition">
-          2. Modern Dark
-        </button>
+            <button onclick="setHeaderLayout('center')"
+              class="px-3 py-2 bg-gray-50 hover:bg-black hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200 flex items-center gap-2 group">
+              <i class="fas fa-align-center text-gray-400 group-hover:text-white transition"></i> Hide Ads (Center)
+            </button>
+          </div>
+        </div>
 
-        <button onclick="switchFooter('footer-3')"
-          class="px-3 py-2 bg-[#f9f7f2] border hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition">
-          3. Editorial Center
-        </button>
+        <div class="p-4 bg-gray-50/50">
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+            <i class="fas fa-shoe-prints"></i> Footer Design
+          </p>
+          <div class="flex flex-col gap-2">
+            <button onclick="switchFooter('footer-1')"
+              class="px-3 py-2 bg-white hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition border border-gray-200 shadow-sm">
+              1. Corporate Light
+            </button>
 
-        <button onclick="switchFooter('footer-4')"
-          class="px-3 py-2 bg-white border border-l-4 border-l-brand-red hover:bg-gray-50 rounded text-xs font-bold text-left w-full transition">
-          4. Split Layout
-        </button>
+            <button onclick="switchFooter('footer-2')"
+              class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left transition shadow-sm">
+              2. Modern Dark
+            </button>
 
-        <button onclick="switchFooter('footer-5')"
-          class="px-3 py-2 bg-[#0f172a] text-blue-100 hover:bg-blue-900 rounded text-xs font-bold text-left w-full transition">
-          5. Big Grid (Dark)
-        </button>
+            <button onclick="switchFooter('footer-3')"
+              class="px-3 py-2 bg-[#f9f7f2] border hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
+              3. Editorial Center
+            </button>
 
-        <button onclick="switchFooter('footer-6')"
-          class="px-3 py-2 bg-gray-200 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition">
-          6. Boxed Floating
-        </button>
+            <button onclick="switchFooter('footer-4')"
+              class="px-3 py-2 bg-white border border-l-4 border-l-brand-red hover:bg-gray-50 rounded text-xs font-bold text-left transition shadow-sm">
+              4. Split Layout
+            </button>
 
-        <button onclick="switchFooter('footer-7')"
-          class="px-3 py-2 bg-white border border-black hover:bg-black hover:text-white rounded text-xs font-bold text-left w-full transition">
-          7. The "Vogue" Style
-        </button>
+            <button onclick="switchFooter('footer-5')"
+              class="px-3 py-2 bg-[#0f172a] text-blue-100 hover:bg-blue-900 rounded text-xs font-bold text-left transition shadow-sm">
+              5. Big Grid (Dark)
+            </button>
 
-        <button onclick="switchFooter('footer-8')"
-          class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left w-full transition">
-          8. Dark Architectural
-        </button>
+            <button onclick="switchFooter('footer-6')"
+              class="px-3 py-2 bg-gray-200 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
+              6. Boxed Floating
+            </button>
 
-        <button onclick="switchFooter('footer-9')"
-          class="px-3 py-2 bg-gray-100 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition">
-          9. Centered Elegance
-        </button>
+            <button onclick="switchFooter('footer-7')"
+              class="px-3 py-2 bg-white border border-black hover:bg-black hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
+              7. The "Vogue" Style
+            </button>
 
-        <button onclick="switchFooter('footer-10')"
-          class="px-3 py-2 bg-white border border-gray-200 hover:bg-gray-50 rounded text-xs font-bold text-left w-full transition">
-          10. Asymmetric Modern
-        </button>
+            <button onclick="switchFooter('footer-8')"
+              class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left transition shadow-sm">
+              8. Dark Architectural
+            </button>
 
-        <button onclick="switchFooter('footer-11')"
-          class="px-3 py-2 bg-brand-red text-white hover:bg-red-800 rounded text-xs font-bold text-left w-full transition">
-          11. Two Tone (Red)
-        </button>
+            <button onclick="switchFooter('footer-9')"
+              class="px-3 py-2 bg-gray-100 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
+              9. Centered Elegance
+            </button>
+
+            <button onclick="switchFooter('footer-10')"
+              class="px-3 py-2 bg-white border border-gray-200 hover:bg-gray-50 rounded text-xs font-bold text-left transition shadow-sm">
+              10. Asymmetric Modern
+            </button>
+
+            <button onclick="switchFooter('footer-11')"
+              class="px-3 py-2 bg-brand-red text-white hover:bg-red-800 rounded text-xs font-bold text-left transition shadow-sm">
+              11. Two Tone (Red)
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- header layout change -->
-  <div
-    class="fixed bottom-24 left-5 z-50 flex flex-col gap-2 bg-white p-4 rounded-xl shadow-2xl border border-gray-200 w-52">
-    <p class="text-xs font-bold text-gray-500 text-center mb-2 uppercase tracking-wider">
-      <i class="fas fa-cog"></i> Header Layout
-    </p>
-
-    <button onclick="setHeaderLayout('ads')"
-      class="px-3 py-2 bg-gray-50 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200 flex items-center gap-2">
-      <i class="fas fa-ad"></i> Show Ads (Default)
-    </button>
-
-    <button onclick="setHeaderLayout('center')"
-      class="px-3 py-2 bg-gray-50 hover:bg-black hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200 flex items-center gap-2">
-      <i class="fas fa-align-center"></i> Hide Ads (Center Logo)
-    </button>
-  </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
   <!-- <script src="js/flipbook.js"></script> -->
