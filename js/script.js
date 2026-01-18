@@ -1,3 +1,84 @@
+// document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', dateOptions);
+
+var adSwiper = new Swiper(".myAdSwiper", {
+    loop: true,
+    autoplay: { delay: 3000 },
+    effect: 'fade',
+    allowTouchMove: false,
+});
+
+// ==========================================
+// 🛠 FIX: HEADER LAYOUT LOGIC
+// ==========================================
+function setHeaderLayout(type) {
+    const container = document.getElementById('header-container');
+    const logoWrapper = document.getElementById('main-logo-wrapper');
+    const adsWrapper = document.getElementById('header-ads-wrapper');
+
+    if (type === 'center') {
+        // --- HIDE ADS ---
+        // 1. md:block সরিয়ে দিচ্ছি যাতে hidden কাজ করে
+        adsWrapper.classList.remove('md:block');
+        adsWrapper.classList.add('hidden');
+
+        // 2. লোগো সেন্টারে আনা
+        container.classList.remove('justify-between');
+        container.classList.add('justify-center');
+
+        logoWrapper.classList.remove('w-1/3', 'justify-start');
+        // w-auto দিলে ফ্লেক্সবক্সে ঠিক মাঝখানে আসবে
+        logoWrapper.classList.add('w-auto', 'justify-center');
+
+    } else {
+        // --- SHOW ADS ---
+        // 1. hidden সরিয়ে md:block ফেরত আনা
+        adsWrapper.classList.remove('hidden');
+        adsWrapper.classList.add('md:block');
+
+        // 2. লেআউট রিসেট করা
+        container.classList.remove('justify-center');
+        container.classList.add('justify-between');
+
+        logoWrapper.classList.remove('w-auto', 'justify-center');
+        logoWrapper.classList.add('w-1/3', 'justify-start');
+    }
+}
+
+// SCROLL & MENU LOGIC
+const stickyNav = document.getElementById('sticky-nav');
+const stickyLogo = document.getElementById('sticky-logo');
+const desktopMenu = document.getElementById('desktop-menu');
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const drawer = document.getElementById('side-drawer');
+const overlay = document.getElementById('mobile-menu-overlay');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 160) {
+        stickyLogo.classList.remove('hidden');
+        setTimeout(() => stickyLogo.classList.remove('opacity-0'), 10);
+        desktopMenu.classList.add('hidden');
+        hamburgerBtn.classList.remove('hidden');
+    } else {
+        stickyLogo.classList.add('opacity-0');
+        stickyLogo.classList.add('hidden');
+        desktopMenu.classList.remove('hidden');
+        hamburgerBtn.classList.add('hidden');
+    }
+});
+
+function toggleMenu() {
+    if (drawer.classList.contains('translate-x-full')) {
+        drawer.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+    } else {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+    }
+}
+
+
 // 1. Initialize 3D Effect Slider
 var swiper3D = new Swiper(".mySwiper", {
     effect: "coverflow",
