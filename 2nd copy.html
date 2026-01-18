@@ -38,9 +38,16 @@
         <a href="#">Events</a>
         <a href="#">Contact</a>
       </div>
-      <div class="flex space-x-3">
+      <!-- <div class="flex space-x-3">
         <span><i class="fas fa-search"></i></span>
         <span id="current-date">Loading...</span>
+      </div> -->
+      <div class="flex space-x-3 items-center">
+        <button onclick="openSearch()" class="hover:text-brand-red transition-colors duration-300 focus:outline-none" title="Search">
+            <i class="fas fa-search"></i>
+        </button>
+        
+        <span id="current-date" class="text-[10px] uppercase tracking-wide">Loading...</span>
       </div>
     </div>
   </div>
@@ -144,6 +151,38 @@
     <p>Scroll down to check sticky header.</p>
   </div>
 
+  <div id="search-overlay" class="fixed inset-0 z-[100] bg-white/95 backdrop-blur-sm opacity-0 invisible transition-all duration-300 flex flex-col items-center justify-center">
+    
+    <button onclick="closeSearch()" class="absolute top-8 right-8 text-4xl text-gray-400 hover:text-brand-red hover:rotate-90 transition-all duration-300">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div class="w-full max-w-3xl px-4 text-center transform scale-95 transition-transform duration-300" id="search-container">
+        
+        <p class="text-sm font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">Type & Hit Enter</p>
+        
+        <div class="relative group">
+            <input type="text" placeholder="Search for articles..." 
+                class="w-full bg-transparent border-b-2 border-gray-200 text-3xl md:text-5xl font-serif font-bold text-gray-800 py-4 px-2 focus:outline-none focus:border-brand-red placeholder-gray-300 transition-colors duration-300 text-center">
+            
+            <button class="absolute right-0 top-1/2 -translate-y-1/2 text-2xl text-gray-300 group-focus-within:text-brand-red transition-colors">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="mt-10">
+            <p class="text-xs text-gray-500 mb-4 font-sans">Popular Searches:</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#" class="px-4 py-1 rounded-full border border-gray-200 text-xs text-gray-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">Architecture</a>
+                <a href="#" class="px-4 py-1 rounded-full border border-gray-200 text-xs text-gray-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">Ceramics</a>
+                <a href="#" class="px-4 py-1 rounded-full border border-gray-200 text-xs text-gray-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">Events</a>
+                <a href="#" class="px-4 py-1 rounded-full border border-gray-200 text-xs text-gray-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">Interviews</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     document.getElementById('current-date').textContent = new Date().toLocaleDateString();
@@ -224,6 +263,49 @@
       }
     }
   
+
+    // SEARCH OVERLAY FUNCTIONALITY
+const searchOverlay = document.getElementById('search-overlay');
+const searchContainer = document.getElementById('search-container');
+const searchInput = searchOverlay.querySelector('input');
+
+function openSearch() {
+    // 1. Show Overlay
+    searchOverlay.classList.remove('opacity-0', 'invisible');
+    searchOverlay.classList.add('opacity-100', 'visible');
+    
+    // 2. Scale Up Animation for Container
+    searchContainer.classList.remove('scale-95');
+    searchContainer.classList.add('scale-100');
+
+    // 3. Prevent Body Scroll
+    document.body.style.overflow = 'hidden';
+
+    // 4. Focus Input automatically after a slight delay
+    setTimeout(() => {
+        searchInput.focus();
+    }, 100);
+}
+
+function closeSearch() {
+    // 1. Hide Overlay
+    searchOverlay.classList.remove('opacity-100', 'visible');
+    searchOverlay.classList.add('opacity-0', 'invisible');
+
+    // 2. Scale Down Animation
+    searchContainer.classList.remove('scale-100');
+    searchContainer.classList.add('scale-95');
+
+    // 3. Restore Body Scroll
+    document.body.style.overflow = 'auto';
+}
+
+// Close on ESC Key Press
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        closeSearch();
+    }
+});
   
   </script>
 </body>
