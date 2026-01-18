@@ -73,34 +73,34 @@ var adSwiper = new Swiper(".myAdSwiper", {
     allowTouchMove: false,    // মাউস দিয়ে ড্র্যাগ করা বন্ধ (যেহেতু আপনি বাটন চান না)
 });
 
-  function switchFooter(targetId) {
-      // ১. সব ফুটার লুকিয়ে ফেলি (hidden ক্লাস যোগ করি)
-      document.querySelectorAll('.footer-variant').forEach(el => {
+function switchFooter(targetId) {
+    // ১. সব ফুটার লুকিয়ে ফেলি (hidden ক্লাস যোগ করি)
+    document.querySelectorAll('.footer-variant').forEach(el => {
         el.classList.add('hidden');
         el.classList.remove('block');
-      });
+    });
 
-      // ২. সিলেক্ট করা ফুটার দেখাই (block ক্লাস যোগ করি)
-      const activeFooter = document.getElementById(targetId);
-      if (activeFooter) {
+    // ২. সিলেক্ট করা ফুটার দেখাই (block ক্লাস যোগ করি)
+    const activeFooter = document.getElementById(targetId);
+    if (activeFooter) {
         activeFooter.classList.remove('hidden');
         activeFooter.classList.add('block');
-      }
     }
-  
-    // New Toggle Function (মিনিমাইজ/ম্যাক্সিমাইজ করার জন্য)
-    function toggleSwitcher() {
-        const content = document.getElementById('switcher-content');
-        const icon = document.getElementById('switcher-icon');
-        
-        // চেক করি এখন হাইট আছে কিনা
-        if (content.style.maxHeight) {
-            // যদি খোলা থাকে, বন্ধ করো
-            content.style.maxHeight = null;
-            icon.classList.remove('rotate-180'); // আইকন সোজা করো
-        } else {
-            // যদি বন্ধ থাকে, খোলো (স্ক্রল হাইট অনুযায়ী)
-            content.style.maxHeight = content.scrollHeight + "px";
-            icon.classList.add('rotate-180'); // আইকন উল্টাও
-        }
+}
+
+// New Toggle Function (মিনিমাইজ/ম্যাক্সিমাইজ করার জন্য)
+function toggleSwitcher() {
+    const content = document.getElementById('switcher-content');
+    const icon = document.getElementById('switcher-icon');
+
+    // চেক করি এখন হাইট আছে কিনা
+    if (content.style.maxHeight) {
+        // যদি খোলা থাকে, বন্ধ করো
+        content.style.maxHeight = null;
+        icon.classList.remove('rotate-180'); // আইকন সোজা করো
+    } else {
+        // যদি বন্ধ থাকে, খোলো (স্ক্রল হাইট অনুযায়ী)
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.classList.add('rotate-180'); // আইকন উল্টাও
     }
+}
