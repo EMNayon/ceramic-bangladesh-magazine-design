@@ -2,14 +2,36 @@
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #D32F2F;
 }
 
 /* --- Hero Slider Customization --- */
@@ -19,10 +41,10 @@
 }
 
 .hero-pagination {
-    bottom: auto !important;  
+    bottom: auto !important;
     left: auto !important;
     width: auto !important;
-    right: 30px !important; 
+    right: 30px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     display: flex;
@@ -45,7 +67,8 @@
 }
 
 /* Navigation Arrows */
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
     color: #D32F2F;
     width: 40px;
     height: 40px;
@@ -55,17 +78,19 @@
     font-weight: bold;
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
+.swiper-button-next::after,
+.swiper-button-prev::after {
     font-size: 20px !important;
     font-weight: bold;
 }
 
 /* Arrow Positions */
 .swiper-button-prev {
-    left: 30px !important; 
+    left: 30px !important;
 }
+
 .swiper-button-next {
-    right: 60px !important; 
+    right: 60px !important;
 }
 
 /* --- 3D Slider Styles --- */
@@ -95,9 +120,11 @@
 .swiper-slide-prev {
     transform-origin: right center !important;
 }
+
 .swiper-slide-next {
     transform-origin: left center !important;
 }
+
 .swiper-slide-active {
     transform-origin: center center !important;
     z-index: 10;
