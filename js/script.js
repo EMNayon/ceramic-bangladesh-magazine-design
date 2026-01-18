@@ -5,8 +5,15 @@ const dateOptions = {
     month: "short",
     day: "numeric",
 };
-document.getElementById("current-date").textContent =
-    new Date().toLocaleDateString("en-US", dateOptions);
+const todayDate = new Date().toLocaleDateString("en-US", dateOptions);
+const desktopDateElement = document.getElementById("current-date");
+if (desktopDateElement) {
+    desktopDateElement.textContent = todayDate;
+}
+const mobileDateElement = document.getElementById("mobile-date");
+if (mobileDateElement) {
+    mobileDateElement.textContent = todayDate;
+}
 
 var adSwiper = new Swiper(".myAdSwiper", {
     loop: true,
