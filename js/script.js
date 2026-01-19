@@ -254,3 +254,28 @@ function toggleSettings() {
         icon.classList.add('rotate-180');
     }
 }
+
+ const swiper = new Swiper(".3DSwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: false,
+      slidesPerView: 3,
+      loop: true,
+      coverflowEffect: {
+       rotate: -33, 
+       stretch: 32, 
+       depth: 100, 
+       modifier: 1, 
+       slideShadows: false,
+      },
+
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });

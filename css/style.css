@@ -94,6 +94,27 @@
 }
 
 /* --- 3D Slider Styles --- */
+
+    .swiper3D {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide3D {
+      width: 300px;
+      height: 400px;
+      background-position: center;
+      background-size: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+  /* রেসপন্সিভ সাইজ (মোবাইলের জন্য) */
+  @media (max-width: 640px) {
+    .swiper-slide3D {
+      width: 250px;
+      height: 350px;
+    }
+  }
 .swiper-3d-slider {
     width: 100%;
     padding-top: 50px;
