@@ -114,14 +114,14 @@
                 <ul id="desktop-menu"
                     class="flex flex-grow justify-center space-x-4 lg:space-x-8 font-semibold text-xs lg:text-sm uppercase tracking-wide transition-all duration-300">
                     <li><a href="index.html" class="text-brand-red"><i class="fas fa-home"></i></a></li>
-                    <li><a href="aboutus.html" class="hover:text-brand-red transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-brand-red transition">About Us</a></li>
                     <li><a href="#" class="hover:text-brand-red transition">Associates</a></li>
                     <li><a href="#" class="hover:text-brand-red transition">Articles</a></li>
                     <li><a href="issues.html" class="hover:text-brand-red transition">Archive</a></li>
                     <li><a href="career.html" class="hover:text-brand-red transition">Career</a></li>
+                    <!-- <li><a href="issues.html" class="hover:text-brand-red transition">Issues</a></li> -->
                     <li><a href="#" class="hover:text-brand-red font-bold transition">e-Magazine</a></li>
-                    <li><a href="details.html" class="hover:text-brand-red transition">Article Details Page</a></li>
-                    
+                    <li><a href="details.html" class="hover:text-brand-red font-bold transition">Article Details Page</a></li>
                 </ul>
 
                 <button id="hamburger-btn" onclick="toggleMenu()"
@@ -148,7 +148,7 @@
         <ul class="space-y-4 font-serif text-base md:text-lg text-gray-700 overflow-y-auto">
             <li><a href="index.html"
                     class="block text-brand-red font-bold transition-all border-b border-gray-50 pb-2">Home</a></li>
-            <li><a href="aboutus.html" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">About Us</a>
+            <li><a href="#" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">About Us</a>
             </li>
             <li><a href="#" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Committee</a>
             </li>
@@ -158,10 +158,9 @@
             </li>
             <li><a href="issues.html"
                     class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Archive</a></li>
-            <li><a href="career.html" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Career</a>
-            </li>
-            <!-- <li><a href="issues.html"
-                    class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Issues</a></li> -->
+            <li><a href="career.html"
+                    class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Career</a></li>
+            <!-- <li><a href="issues.html" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Issues</a></li> -->
             <li><a href="#"
                     class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">e-Magazine</a></li>
             <li><a href="details.html"
@@ -179,91 +178,209 @@
         </div>
     </div>
     <!-- header section end -->
+     
+    <section class="bg-gray-50 relative overflow-hidden font-sans">
+        <div class="relative bg-[#111827] text-white py-20 lg:py-28">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px]"></div>
 
-    <!-- issues section start -->
-    <section class="container mx-auto px-4 py-16 bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    
+                    <div class="w-full lg:w-1/2 lg:pr-12 lg:-mr-20 z-20 order-2 lg:order-1">
+                        <div class="bg-white text-gray-900 p-8 md:p-12 rounded-sm shadow-2xl border-l-8 border-[#E3000F]">
+                            <h5 class="text-[#E3000F] font-bold uppercase tracking-widest text-xs mb-3">About The Magazine</h5>
+                            <h2 class="text-4xl lg:text-5xl font-serif font-extrabold mb-6 leading-tight">
+                                Defining the Art of <br> <span class="text-[#E3000F]">Ceramic & Living.</span>
+                            </h2>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                                **Ceramic Bangladesh** is the premier bi-monthly authority on Architecture, Real Estate, and Construction. We are the voice of a $460 billion GDP nation's most vital sector.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                An initiative of the <strong class="text-gray-900">BCMEA</strong>, we connect Influencers, policymakers, and industry leaders across the globe—from Dhaka to Tokyo, London to New York.
+                            </p>
+                        </div>
+                        <div class="flex gap-4 mt-5">
+            <div class="border border-gray-200 p-4 rounded text-center w-1/3">
+                <span class="block text-2xl font-bold text-[#E3000F]">180M</span>
+                <span class="text-xs text-gray-500 uppercase">Population</span>
+            </div>
+            <div class="border border-gray-200 p-4 rounded text-center w-1/3">
+                <span class="block text-2xl font-bold text-[#E3000F]">60%</span>
+                <span class="text-xs text-gray-500 uppercase">Investments</span>
+            </div>
+            <div class="border border-gray-200 p-4 rounded text-center w-1/3">
+                <span class="block text-2xl font-bold text-[#E3000F]">No.1</span>
+                <span class="text-xs text-gray-500 uppercase">Sector</span>
+            </div>
+            </div>
+                    </div>
 
-            <a href="all-articles-design.html" class="group block">
-                <div class="bg-[#E3000F] text-white text-center py-3 md:py-4 transition-colors group-hover:bg-red-700">
-                    <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider">18th Issue</h3>
-                </div>
-                <div class="relative overflow-hidden shadow-lg border-x border-b border-gray-100">
-                    <img src="assets/imgs/issues/12.jpg" alt="18th Issue Cover"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105">
-                    <div
-                        class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                    <div class="w-full lg:w-3/5 h-[400px] lg:h-[550px] relative order-1 lg:order-2">
+                        <div class="absolute inset-0 bg-[#E3000F] transform translate-x-4 translate-y-4 rounded-sm"></div>
+                        <img src="assets/aboutus.webp" alt="Ceramic Bangladesh Cover Collage" 
+                            class="w-full h-full object-cover rounded-sm relative z-10 shadow-lg grayscale hover:grayscale-0 transition-all duration-700">
                     </div>
                 </div>
-            </a>
+            </div>
+        </div>
 
-            <a href="all-articles-design.html" class="group block">
-                <div class="bg-[#E3000F] text-white text-center py-3 md:py-4 transition-colors group-hover:bg-red-700">
-                    <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider">17th Issue</h3>
+        <div class="container mx-auto px-4 py-20">
+            
+            <div class="text-center mb-16">
+                <h5 class="text-[#E3000F] font-bold uppercase tracking-widest text-sm mb-3">Visionaries & Leaders</h5>
+                <h2 class="text-4xl font-serif font-bold text-gray-900">Editorial Board</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-8 rounded-sm shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border-t-4 border-gray-900 hover:border-[#E3000F] transition-all duration-300 group text-center">
+                    <div class="w-16 h-1 bg-[#E3000F] mx-auto mb-6 group-hover:w-24 transition-all"></div>
+                    <h3 class="text-2xl font-serif font-bold text-gray-900 mb-1">Moynul Islam</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">Chief Advisor</p>
                 </div>
-                <div class="relative overflow-hidden shadow-lg border-x border-b border-gray-100">
-                    <img src="assets/imgs/issues/14.jpg" alt="17th Issue Cover"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105">
-                    <div
-                        class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                <div class="bg-[#E3000F] p-8 rounded-sm shadow-xl text-white transform md:-translate-y-4 text-center">
+                    <div class="w-16 h-1 bg-white mx-auto mb-6"></div>
+                    <h3 class="text-3xl font-serif font-bold mb-1">Irfan Uddin</h3>
+                    <p class="text-xs font-bold text-red-100 uppercase tracking-widest">Chief Editor</p>
+                </div>
+                <div class="bg-white p-8 rounded-sm shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border-t-4 border-gray-900 hover:border-[#E3000F] transition-all duration-300 group text-center">
+                    <div class="w-16 h-1 bg-[#E3000F] mx-auto mb-6 group-hover:w-24 transition-all"></div>
+                    <h3 class="text-2xl font-serif font-bold text-gray-900 mb-1">Salahuddin A Talukder</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">Editor</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                
+                <div class="md:col-span-4 flex flex-col gap-4">
+                    <div class="bg-gray-100 p-4 border-l-4 border-gray-900">
+                        <p class="text-xs text-gray-500 uppercase font-bold">Co-Chief Advisor</p>
+                        <h4 class="text-lg font-bold">Md. Mamunur Rashid FCMA</h4>
+                    </div>
+                    <div class="bg-gray-100 p-4 border-l-4 border-gray-900">
+                        <p class="text-xs text-gray-500 uppercase font-bold">Co-Chief Advisor</p>
+                        <h4 class="text-lg font-bold">Abdul Hakim Sumon</h4>
                     </div>
                 </div>
-            </a>
 
-            <a href="all-articles-design.html" class="group block">
-                <div class="bg-[#E3000F] text-white text-center py-3 md:py-4 transition-colors group-hover:bg-red-700">
-                    <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider">16th Issue</h3>
-                </div>
-                <div class="relative overflow-hidden shadow-lg border-x border-b border-gray-100">
-                    <img src="assets/imgs/issues/15.png" alt="16th Issue Cover"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105">
-                    <div
-                        class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                <div class="md:col-span-8 bg-white border border-gray-200 p-8 rounded-sm">
+                    <h4 class="text-xl font-serif font-bold text-gray-900 mb-6">Distinguished Advisory Panel</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-chevron-right text-[#E3000F] text-xs"></i>
+                            <span class="text-gray-700 font-medium">Engr. Ruslan Nasir</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-chevron-right text-[#E3000F] text-xs"></i>
+                            <span class="text-gray-700 font-medium">Ayesha Sanaa Asif Tabani</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-chevron-right text-[#E3000F] text-xs"></i>
+                            <span class="text-gray-700 font-medium">Rasheed Mymunul Islam</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-chevron-right text-[#E3000F] text-xs"></i>
+                            <span class="text-gray-700 font-medium">Md. Asif Iqbal Mahmud</span>
+                        </div>
                     </div>
                 </div>
-            </a>
-            <a href="all-articles-design.html" class="group block">
-                <div class="bg-[#E3000F] text-white text-center py-3 md:py-4 transition-colors group-hover:bg-red-700">
-                    <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider">18th Issue</h3>
-                </div>
-                <div class="relative overflow-hidden shadow-lg border-x border-b border-gray-100">
-                    <img src="assets/imgs/issues/16.png" alt="18th Issue Cover"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105">
-                    <div
-                        class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+            </div>
+        </div>
+
+        <div class="bg-[#111827] text-gray-300 py-20 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#E3000F] to-gray-900"></div>
+
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+                    
+                    <div>
+                        <h4 class="text-white font-serif text-xl font-bold mb-6 pb-3 border-b border-gray-700">Editorial Core</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[#E3000F] text-xs font-bold uppercase mb-1">Strategic Planners</p>
+                                <ul class="text-sm space-y-1">
+                                    <li>Anwar Haq</li>
+                                    <li>Gazi Nayeem Manzoor</li>
+                                    <li>Mohammadullah Shohag</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-[#E3000F] text-xs font-bold uppercase mb-1">Coordinator</p>
+                                <p class="text-white font-medium">Preety Dey</p>
+                            </div>
+                            <div>
+                                <p class="text-[#E3000F] text-xs font-bold uppercase mb-1">Sub-Editors</p>
+                                <p class="text-sm">Khondoker Md Shoyeb <span class="text-xs text-gray-500">(Asst.)</span></p>
+                                <p class="text-sm">Rehnuma Tasnim Sheefa <span class="text-xs text-gray-500">(Sr.)</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-serif text-xl font-bold mb-6 pb-3 border-b border-gray-700">Creative & Visuals</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[#E3000F] text-xs font-bold uppercase mb-1">Design Team</p>
+                                <p class="text-white font-medium text-lg">Md. Ali Haider</p>
+                                <p class="text-white font-medium text-lg">Sohag Ahmed</p>
+                            </div>
+                            <div>
+                                <p class="text-[#E3000F] text-xs font-bold uppercase mb-1">Photographers</p>
+                                <p class="text-sm">Junaid Hasan Pranto</p>
+                                <p class="text-sm">Rezwan Kobir Zaha</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2">
+                        <h4 class="text-white font-serif text-xl font-bold mb-6 pb-3 border-b border-gray-700">Feature Writers</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-[#E3000F] rounded-full"></span>
+                                <span class="text-sm font-medium text-white">Sajibur Rahman</span>
+                            </div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Kaniz F. Supriya</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Shahbaz Nahian</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Rafikul Islam</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Samia Sharmin Biva</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Quazi Anika Afrin</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Asfia A Jahan</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Samira Ahsan</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Aziz Hakim</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Tanisha Kabir</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Lamia Mehrin</span></div>
+                            <div class="flex items-center gap-2"><span class="w-2 h-2 bg-[#E3000F] rounded-full"></span><span class="text-sm font-medium text-white">Fariha Hossain</span></div>
+                        </div>
                     </div>
                 </div>
-            </a>
 
-            <a href="all-articles-design.html" class="group block">
-                <div class="bg-[#E3000F] text-white text-center py-3 md:py-4 transition-colors group-hover:bg-red-700">
-                    <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider">17th Issue</h3>
-                </div>
-                <div class="relative overflow-hidden shadow-lg border-x border-b border-gray-100">
-                    <img src="assets/imgs/issues/17.jpg" alt="17th Issue Cover"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105">
-                    <div
-                        class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                <div class="mt-16 pt-8 border-t border-gray-800 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h5 class="text-[#E3000F] font-bold uppercase text-xs mb-3">HR & IT Operations</h5>
+                        <ul class="text-sm space-y-1">
+                            <li>Md. Zulfikar Ali Khan (HR)</li>
+                            <li>Sangita Roy (HR)</li>
+                            <li>Md Ashraful Hoque (IT)</li>
+                            <li>Sahidul Islam Abir (IT)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-[#E3000F] font-bold uppercase text-xs mb-3">Accounts & Business Dev.</h5>
+                        <ul class="text-sm space-y-1">
+                            <li>Md. Nasir Uddin (Acc.)</li>
+                            <li>Afifa Chowdhury (Acc.)</li>
+                            <li>Md. Monir Hossain (Biz Dev)</li>
+                            <li>Md. Shakib Hossain (Biz Dev)</li>
+                        </ul>
+                    </div>
+                    <div class="md:text-right flex flex-col justify-end">
+                        <p class="text-gray-500 text-xs uppercase tracking-widest mb-2">Published By</p>
+                        <h4 class="text-2xl font-serif font-bold text-white">Zahedi Hassan Chowdhury</h4>
+                        <p class="text-xs text-[#E3000F] mt-1 font-bold">On behalf of BCMEA</p>
                     </div>
                 </div>
-            </a>
-
-            <a href="all-articles-design.html" class="group block">
-                <div class="bg-[#E3000F] text-white text-center py-3 md:py-4 transition-colors group-hover:bg-red-700">
-                    <h3 class="text-lg md:text-xl font-bold uppercase tracking-wider">16th Issue</h3>
-                </div>
-                <div class="relative overflow-hidden shadow-lg border-x border-b border-gray-100">
-                    <img src="assets/imgs/issues/12.jpg" alt="16th Issue Cover"
-                        class="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105">
-                    <div
-                        class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                    </div>
-                </div>
-            </a>
-
+            </div>
         </div>
     </section>
-    <!-- issues section end -->
 
     <footer id="footer-1"
         class="footer-variant block bg-white pt-16 pb-8 border-t border-gray-200 font-sans text-gray-600">

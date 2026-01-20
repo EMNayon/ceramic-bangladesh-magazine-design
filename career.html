@@ -21,7 +21,7 @@
   </script>
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/flipbook.css">
+  <!-- <link rel="stylesheet" href="css/flipbook.css"> -->
   <script>
     tailwind.config = {
       theme: {
@@ -116,7 +116,8 @@
           <li><a href="#" class="hover:text-brand-red transition">Articles</a></li>
           <li><a href="issues.html" class="hover:text-brand-red transition">Archive</a></li>
           <li><a href="career.html" class="hover:text-brand-red transition">Career</a></li>
-          <li><a href="#" class="hover:text-brand-red font-bold transition">e-Magazine</a></li>
+          <!-- <li><a href="issues.html" class="hover:text-brand-red transition">Issues</a></li> -->
+          <li><a href="e-Magazine.html" class="hover:text-brand-red font-bold transition">e-Magazine</a></li>
         </ul>
 
         <button id="hamburger-btn" onclick="toggleMenu()"
@@ -149,7 +150,8 @@
       <li><a href="#" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Articles</a></li>
       <li><a href="issues.html" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Archive</a></li>
       <li><a href="career.html" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Career</a></li>
-      <li><a href="#" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">e-Magazine</a></li>
+      <!-- <li><a href="issues.html" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Issues</a></li> -->
+      <li><a href="e-Magazine.html" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">e-Magazine</a></li>
     </ul>
 
     <div class="mt-auto border-t pt-6">
@@ -163,203 +165,85 @@
     </div>
   </div>
   <!-- header section end -->
+   <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
 
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        
+        <div class="bg-[#E3000F] py-6 px-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mb-2">Join Our Team</h2>
+            <p class="text-red-100 text-sm md:text-base">We are looking for talented people like you.</p>
+        </div>
 
-  <div class="flipbook-viewport">
-    <div class="scene-container">
-      <div id="prev" class="flip-nav"><i class="fas fa-chevron-left"></i></div>
-      <div id="next" class="flip-nav"><i class="fas fa-chevron-right"></i></div>
+        <div class="p-8 md:p-10">
+            <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
 
-      <div class="scene" id="scene">
-        <div class="book" id="book">
-        </div>
-      </div>
-    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Full Name</label>
+                <input type="text" id="name" placeholder="John Doe" 
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#E3000F] focus:bg-white focus:ring-0 transition-colors duration-300 outline-none">
+                </div>
+                <div>
+                <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" 
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#E3000F] focus:bg-white focus:ring-0 transition-colors duration-300 outline-none">
+                </div>
+            </div>
 
-    <div class="toolbar">
-      <div class="page-count" id="page-counter">Loading PDF...</div>
-      <div class="divider"></div>
-      <button class="tool-btn" id="zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
-      <button class="tool-btn" id="zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
-      <div class="divider"></div>
-      <button class="tool-btn" id="fullscreen-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
-    </div>
-  </div>
+            <div>
+                <label for="subject" class="block text-sm font-bold text-gray-700 mb-2">Position / Subject</label>
+                <input type="text" id="subject" placeholder="e.g. Senior Graphic Designer" 
+                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#E3000F] focus:bg-white focus:ring-0 transition-colors duration-300 outline-none">
+            </div>
 
-  <section class="container mx-auto px-4 mb-16 mt-12">
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2">Upload CV / Resume</label>
+                <div class="relative border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#E3000F] hover:bg-red-50 transition-all duration-300 group cursor-pointer">
+                <input type="file" id="file-upload" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="updateFileName(this)">
+                
+                <div class="flex flex-col items-center justify-center space-y-2">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                    <i class="fas fa-cloud-upload-alt text-gray-400 text-xl group-hover:text-[#E3000F]"></i>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                    <span class="font-semibold text-[#E3000F]">Click to upload</span> or drag and drop
+                    </div>
+                    <p class="text-xs text-gray-400">PDF, DOC, DOCX (Max 5MB)</p>
+                    <p id="file-name" class="text-sm font-bold text-gray-800 mt-2 hidden"></p>
+                </div>
+                </div>
+            </div>
 
-    <div class="text-center mb-12 relative">
-      <h3
-        class="text-2xl md:text-3xl font-serif font-bold uppercase inline-block bg-white px-6 relative z-10 text-gray-800 tracking-wide">
-        Issue 18th
-      </h3>
-      <div class="absolute inset-0 top-1/2 border-t border-gray-200 -z-0"></div>
-    </div>
+            <div>
+                <label for="message" class="block text-sm font-bold text-gray-700 mb-2">Cover Letter / Message</label>
+                <textarea id="message" rows="5" placeholder="Tell us why you are a good fit..." 
+                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#E3000F] focus:bg-white focus:ring-0 transition-colors duration-300 outline-none resize-none"></textarea>
+            </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10">
+            <button type="submit" 
+                class="w-full bg-[#E3000F] text-white font-bold py-4 rounded-lg hover:bg-red-700 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl">
+                Submit Application
+            </button>
 
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-brand-red text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Architecture
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Architecture Design"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </form>
         </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            The evolution of minimal design in modern housing
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Shama Nimkar</p>
         </div>
-      </article>
-
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-gray-900 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Real Estate
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Interior Trends"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            Modern Interior Design Trends for 2026
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Tanvir Hasan</p>
-        </div>
-      </article>
-
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-brand-red text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Urban
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Luxury Living"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            Transforming small spaces into luxury living
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Emran Masud</p>
-        </div>
-      </article>
-
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-gray-900 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Decor
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Home Decor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            The art of choosing the right tiles for your home
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Sarah J.</p>
-        </div>
-      </article>
-
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-brand-red text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Architecture
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Architecture Design"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            Sustainable building materials for future homes
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Shama Nimkar</p>
-        </div>
-      </article>
-
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-gray-900 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Real Estate
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Interior Trends"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            Investment opportunities in ceramic sector
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Tanvir Hasan</p>
-        </div>
-      </article>
-
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-brand-red text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Urban
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Luxury Living"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            Smart city planning and infrastructure
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Emran Masud</p>
-        </div>
-      </article>
-
-      <article class="group flex flex-col h-full">
-        <div class="overflow-hidden rounded-lg mb-4 h-56 relative shadow-sm">
-          <span
-            class="absolute top-3 left-3 bg-gray-900 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10 tracking-wider shadow-md">
-            Decor
-          </span>
-          <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-            alt="Home Decor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-        </div>
-        <div class="text-center flex-grow px-2">
-          <h3
-            class="text-lg font-serif font-bold mb-2 leading-tight group-hover:text-brand-red transition-colors cursor-pointer">
-            Minimalist furniture for compact apartments
-          </h3>
-          <p class="text-xs text-gray-500 italic font-medium uppercase tracking-wide">By Sarah J.</p>
-        </div>
-      </article>
 
     </div>
-  </section>
-
-
+   </section>
+<script>
+  function updateFileName(input) {
+    const fileNameElement = document.getElementById('file-name');
+    if (input.files && input.files.length > 0) {
+      fileNameElement.textContent = "Selected: " + input.files[0].name;
+      fileNameElement.classList.remove('hidden');
+      fileNameElement.classList.add('block');
+    } else {
+      fileNameElement.classList.add('hidden');
+    }
+  }
+</script>
 
   <footer id="footer-1"
     class="footer-variant block bg-white pt-16 pb-8 border-t border-gray-200 font-sans text-gray-600">
@@ -1176,7 +1060,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/flipbook.js"></script>
+  <!-- <script src="js/flipbook.js"></script> -->
 </body>
 
 </html>
