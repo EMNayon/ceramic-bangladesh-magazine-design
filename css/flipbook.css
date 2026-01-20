@@ -1,32 +1,34 @@
 
-.flipbook {
-    margin: 0;
-    background: #525659; /* PDF Viewer এর মতো ব্যাকগ্রাউন্ড */
+
+.flipbook-viewport {
+    height: 100%;
+    width: 100%;
     display: flex;
-    flex-direction: column; /* টুলবার নিচে রাখার জন্য */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 0;
+    background: #525659;
     overflow: hidden;
-    font-family: sans-serif;
 }
-/* Scene Container - জুম করার জন্য একে টার্গেট করা হবে */
+
+/* --- Scene & Book Layout --- */
 .scene-container {
     flex-grow: 1;
-    /* বাকি জায়গা জুড়ে থাকবে */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    overflow: hidden;
+    padding: 20px;
+    position: relative;
 }
 
 .scene {
-    width: 900px;
-    height: 600px;
-    perspective: 2000px;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 3 / 2;
+    perspective: 2500px;
     transition: transform 0.3s ease;
-    /* জুম স্মুথ করার জন্য */
 }
 
 .book {
@@ -34,8 +36,15 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
+/* 🟢 When Closed: Shift Left to center the cover */
+.book.closed {
+    transform: translateX(-25%);
+}
+
+/* --- Page Styling --- */
 .page {
     position: absolute;
     width: 50%;
@@ -44,17 +53,16 @@
     background: #fff;
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 1s cubic-bezier(.4, .2, .2, 1);
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-left: 1px solid rgba(0,0,0,0.1); /* Spine line */
 }
 
-.front,
-.back {
+.front, .back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    background-color: white;
+    background-color: #fff;
     overflow: hidden;
 }
 
@@ -63,107 +71,102 @@
     transform: rotateY(0deg);
 }
 
+/* Realistic Page Shadow */
+.front::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 15%);
+    pointer-events: none;
+}
+
 .back {
     transform: rotateY(180deg);
     z-index: 1;
+    background-color: #fdfdfd;
+}
+
+.back::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 15%);
+    pointer-events: none;
+}
+
+/* Page Flip Action */
+.page.flipped {
+    transform: rotateY(-180deg);
 }
 
 canvas {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block;
 }
 
-.page.flipped {
-    transform: rotateY(-180deg);
-}
-
-/* Navigation Buttons (Side Arrows) */
+/* --- Navigation Buttons --- */
 .flip-nav {
     position: absolute;
-    /* top: 50%; */
+    top: 50%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.3);
-    /* একটু গাড় কালার */
-    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
-    user-select: none;
-    z-index: 9999;
-    transition: 0.3s;
+    z-index: 2000;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s;
 }
 
 .flip-nav:hover {
-    background: rgba(0, 0, 0, 0.6);
+    background: white;
+    color: #333;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
-#prev {
-    left: 20px;
-    display: none;
-}
+#prev { left: 20px; }
+#next { right: 20px; }
 
-#next {
-    right: 20px;
-}
-
-
-/* 🟢 নতুন যুক্ত করা টুলবার স্টাইল (New Toolbar Styles) */
+/* --- Toolbar --- */
 .toolbar {
+    margin-bottom: 20px;
     height: 50px;
-    background: #fff;
-    border-radius: 25px;
-    /* ছবির মতো গোলকাকার */
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
     display: flex;
     align-items: center;
     gap: 15px;
     padding: 0 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    /* নিচ থেকে একটু উপরে */
-    z-index: 10000;
-    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    z-index: 5000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.page-count {
-    font-weight: bold;
-    color: #333;
-    min-width: 80px;
-    text-align: center;
-}
+.page-count { font-size: 14px; font-weight: 500; color: #ddd; }
+.divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
 
 .tool-btn {
-    background: none;
-    border: none;
-    color: #555;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
+    background: none; border: none; color: #ccc;
+    font-size: 18px; cursor: pointer; padding: 8px;
     transition: 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
+.tool-btn:hover { color: white; transform: scale(1.1); }
 
-.tool-btn:hover {
-    background: #f0f0f0;
-    color: #000;
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .scene { width: 95%; }
+    .flip-nav { width: 40px; height: 40px; font-size: 16px; }
+    #prev { left: 10px; } 
+    #next { right: 10px; }
+    .book.closed { transform: translateX(-25%); } /* Keep centering on mobile */
 }
-
-/* মাঝখানের দাগ */
-.divider {
-    height: 25px;
-    width: 1px;
-    background: #ddd;
-}
-
-
-
-
