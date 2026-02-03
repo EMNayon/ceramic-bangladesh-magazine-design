@@ -67,26 +67,63 @@ const drawer = document.getElementById("side-drawer");
 const overlay = document.getElementById("mobile-menu-overlay");
 const stickySubscribe = document.getElementById("sticky-subscribe");
 
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY > 160) {
+//     stickyLogo.classList.remove("hidden");
+//     setTimeout(() => stickyLogo.classList.remove("opacity-0"), 10);
+//     desktopMenu.classList.add("hidden");
+//     hamburgerBtn.classList.remove("hidden");
+//     if (stickySubscribe) {
+//       stickySubscribe.classList.remove("hidden");
+//       stickySubscribe.classList.add("inline-block");
+//     }
+//   } else {
+//     stickyLogo.classList.add("opacity-0");
+//     stickyLogo.classList.add("hidden");
+//     desktopMenu.classList.remove("hidden");
+//     hamburgerBtn.classList.add("hidden");
+//     if (stickySubscribe) {
+//       stickySubscribe.classList.add("hidden");
+//       stickySubscribe.classList.remove("inline-block");
+//     }
+//   }
+// });
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 160) {
-    stickyLogo.classList.remove("hidden");
-    setTimeout(() => stickyLogo.classList.remove("opacity-0"), 10);
-    desktopMenu.classList.add("hidden");
-    hamburgerBtn.classList.remove("hidden");
-    if (stickySubscribe) {
-      stickySubscribe.classList.remove("hidden");
-      stickySubscribe.classList.add("inline-block");
+    const stickyNav = document.getElementById("sticky-nav");
+    const isMobile = window.innerWidth < 768; // Mobile check
+
+    if (window.scrollY > 160) {
+        // Sticky Nav show kora (Mobile + Desktop)
+        stickyNav.classList.remove("hidden");
+        
+        stickyLogo.classList.remove("hidden");
+        setTimeout(() => stickyLogo.classList.remove("opacity-0"), 10);
+        
+        desktopMenu.classList.add("hidden");
+        hamburgerBtn.classList.remove("hidden");
+
+        if(stickySubscribe) {
+            stickySubscribe.classList.remove("hidden");
+            stickySubscribe.classList.add("inline-block");
+        }
+    } else {
+        // Scroll 160 er niche gele Mobile e purapuri hide thakbe
+        // Desktop e abar menu fire ashbe
+        if (isMobile) {
+            stickyNav.classList.add("hidden");
+        } else {
+            stickyNav.classList.remove("hidden"); // Desktop e menu thakbe
+            stickyLogo.classList.add("opacity-0");
+            stickyLogo.classList.add("hidden");
+            desktopMenu.classList.remove("hidden");
+            hamburgerBtn.classList.add("hidden");
+        }
+
+        if(stickySubscribe) {
+            stickySubscribe.classList.add("hidden");
+            stickySubscribe.classList.remove("inline-block");
+        }
     }
-  } else {
-    stickyLogo.classList.add("opacity-0");
-    stickyLogo.classList.add("hidden");
-    desktopMenu.classList.remove("hidden");
-    hamburgerBtn.classList.add("hidden");
-    if (stickySubscribe) {
-      stickySubscribe.classList.add("hidden");
-      stickySubscribe.classList.remove("inline-block");
-    }
-  }
 });
 
 function toggleMenu() {
