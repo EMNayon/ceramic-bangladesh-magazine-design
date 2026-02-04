@@ -1223,34 +1223,39 @@
         <p class="text-gray-500 mb-8">
           Subscribe to get our monthly edition and exclusive industry insights directly in your inbox.
         </p>
-        <div class="flex shadow-lg rounded-full overflow-hidden bg-white p-1">
+        <div class="flex flex-col sm:flex-row shadow-lg rounded-2xl sm:rounded-full overflow-hidden bg-white p-1 gap-2 sm:gap-0">
           <input type="email" placeholder="Enter your email address..."
-            class="flex-grow px-6 py-3 outline-none text-gray-700" />
+            class="flex-grow px-6 py-4 sm:py-3 outline-none text-gray-700 text-sm" />
+          
           <button
-            class="bg-black text-white px-8 py-3 rounded-full font-bold uppercase text-xs hover:bg-brand-gray hover:text-black transition duration-300">
+            class="bg-black text-white px-8 py-4 sm:py-3 rounded-xl sm:rounded-full font-bold uppercase text-xs hover:bg-gray-200 hover:text-black transition duration-300 w-full sm:w-auto">
             Subscribe
           </button>
         </div>
       </div>
 
       <div class="relative flex items-center justify-center mb-12">
-        <div class="absolute inset-0 flex items-center">
+        <div class="absolute inset-0 flex items-center hidden md:flex">
           <div class="w-full border-t border-gray-300"></div>
         </div>
 
-        <div class="relative bg-[#F3F4F6] px-6 flex items-center gap-6">
-          <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-1">Presented By</span>
+        <div class="relative bg-[#F3F4F6] px-6 flex flex-col md:flex-row items-center gap-6 md:gap-6">
+          
+          <div class="flex flex-col md:flex-row items-center gap-6">
+            <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Presented By</span>
+            <img src="assets/imgs/CBM-logo-layer.png" class="h-10 md:h-12 w-auto" alt="CBM" />
+          </div>
 
-          <img src="assets/imgs/CBM-logo-layer.png" class="h-10 md:h-12 w-auto" alt="CBM" />
-
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center sm:block hidden">
             <span class="text-gray-300 text-2xl leading-none">||</span>
           </div>
-          <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold mb-1">Supported By</span>
 
-          <img src="bcmea-logo.webp" class="h-10 md:h-16 w-auto" alt="BCMEA" />
+          <div class="flex flex-col md:flex-row items-center gap-6">
+            <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Supported By</span>
+            <img src="bcmea-logo.webp" class="h-10 md:h-16 w-auto" alt="BCMEA" />
+          </div>
+
         </div>
-
       </div>
       <div
         class="flex flex-wrap justify-center gap-6 md:gap-12 mb-10 font-bold text-sm text-gray-800 uppercase tracking-wide">
