@@ -1,164 +1,659 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Magazine Slider</title>
-    
+    <title>About Us - Premium Designs</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
     <style>
-/* Slider Custom Height */
-.swiper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+        }
 
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px;
-    height: 400px;
-    /* ডিফল্ট অরিজিন সেন্টারে থাকে, আমরা এটা JS দিয়ে কন্ট্রোল না করে CSS দিয়ে ফিক্স করছি */
-    transition: transform 0.5s ease;
-}
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
 
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* শ্যাডো একটু সফট করা হয়েছে */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4); 
-}
+        .active-tab {
+            background: #E3000F;
+            color: white;
+            border-radius: 99px;
+        }
 
-/* --- গেম চেঞ্জার ফিক্স (এইটুকু উল্টা ভাব ঠিক করবে) --- */
-/* বাম পাশের স্লাইড তার ডানদিকের কোণা থেকে ঘুরবে */
-.swiper-slide-prev {
-    transform-origin: right center !important;
-    
-}
-.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
-    content: 'next';
-    font-size: large;
-}
-.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
-    content: 'prev';
-    font-size: large;
-}
+        .design-section {
+            display: none;
+        }
 
-/* ডান পাশের স্লাইড তার বামদিকের কোণা থেকে ঘুরবে */
-.swiper-slide-next {
-    transform-origin: left center !important;
-}
+        .design-section.active {
+            display: block;
+        }
 
-/* মাঝখানের স্লাইড সোজাসুজি থাকবে */
-.swiper-slide-active {
-    transform-origin: center center !important;
-    z-index: 10; /* এটা সবার উপরে থাকবে */
-}
+        .writer-tag {
+            transition: all 0.3s ease;
+        }
+
+        .writer-tag:hover {
+            background: #E3000F;
+            color: white;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
-<body class="bg-white">
 
-    <div class="container mx-auto px-4 py-8">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-            <div class="h-32 bg-[#2c3e50] flex items-center justify-between px-8 relative overflow-hidden group">
-                <div class="z-10 text-white">
-                    <p class="font-handwriting text-3xl text-green-400 italic font-bold">Designed</p>
-                    <p class="text-sm tracking-widest uppercase mt-1">For Life</p>
-                </div>
-                <div class="z-10">
-                    <h3 class="text-white text-2xl font-bold border-l-2 border-white pl-2">dbl<br><span class="text-xs font-normal">ceramics</span></h3>
-                </div>
-                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform origin-bottom-right"></div>
-            </div>
+<body class="bg-[#fcfcfc]">
 
-            <div class="h-32 bg-[#f8d7da] flex items-center justify-between px-6 relative overflow-hidden">
-                <div class="z-10 w-1/2">
-                    <div class="bg-blue-600 text-white text-xs inline-block p-1 mb-2">PARAGON</div>
-                    <h4 class="text-blue-900 font-bold text-sm uppercase leading-tight">Paragon Ceramic Industries Ltd.</h4>
-                    <p class="text-[10px] text-gray-600 mt-2">H-43/B, R-123, Gulshan-1, Dhaka-1212</p>
-                </div>
-                <div class="z-10 w-1/2 flex justify-end">
-                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="h-24 object-contain opacity-80 mix-blend-multiply">
-                </div>
-            </div>
+    <div class="sticky top-0 z-[100] bg-white/80 backdrop-blur-md border-b py-4">
+        <div class="container mx-auto px-4 flex justify-center gap-3">
+            <button onclick="switchDesign('design4', this)"
+                class="tab-btn active-tab px-6 py-2 text-[10px] font-bold uppercase tracking-widest transition-all">04.
+                Bold Minimal</button>
+            <button onclick="switchDesign('design5', this)"
+                class="tab-btn px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 transition-all">05.
+                Grid Mosaic</button>
+            <button onclick="switchDesign('design6', this)"
+                class="tab-btn px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 transition-all">06.
+                Industrial Narrative</button>
         </div>
-
-        <div class="relative max-w-5xl mx-auto">
-            
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    
-                    <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
-                        <div class="absolute top-8 right-8 text-black text-right">
-                             <span class="font-bold text-xl uppercase">Ceramic <br> <span class="text-xs font-normal">Bangladesh</span></span>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1767963758785-b9def36c13e3?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-                        <div class="absolute top-8 right-8 text-black text-right">
-                              <span class="text-[180px] leading-none font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-red-600 filter drop-shadow-lg">5</span>
-                                <span class="absolute bottom-4 right-[-20px] text-white font-handwriting text-4xl italic">Anniversary</span>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
-                        <div class="absolute top-8 right-8 text-black text-right">
-                             <span class="font-bold text-xl uppercase">Ceramic <br> <span class="text-xs font-normal">Bangladesh</span></span>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                                                 <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
-                        <div class="absolute top-8 right-8 text-black text-right">
-                             <span class="font-bold text-xl uppercase">Ceramic <br> <span class="text-xs font-normal">Bangladesh</span></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-
-        </div>
-
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <div id="design4" class="design-section active bg-white">
+        <section class="pt-24 pb-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl border-b pb-12">
+                    <h5 class="text-gray-400 font-extrabold uppercase tracking-[0.5em] text-[10px] mb-8 italic">
+                        Established 2014
+                    </h5>
+                    <h1 class="text-6xl md:text-9xl serif-font font-black leading-none mb-10 text-black">
+                        We Tell <br> Stories of <br> <span class="text-gray-400">Steel & Clay.</span>
+                    </h1>
+                </div>
 
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        loop: true,
-        coverflowEffect: {
-            rotate: 30,       // আগে ৪০ ছিল, এখন ৩০ দিলাম যাতে বেশি বাঁকা না হয়
-            stretch: 0,       // ০ রাখলে স্লাইডগুলো একে অপরের সাথে লেগে থাকবে (গ্যাপ হবে না)
-            depth: 100,       // 3D গভীরতা
-            modifier: 1,      
-            slideShadows: true, // শ্যাডো থাকলে 3D রিয়ালিস্টিক লাগে
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-    });
-</script>
+                <div class="grid md:grid-cols-2 gap-16 items-start mt-16">
+                    <p class="text-2xl text-gray-800 leading-relaxed font-light italic serif-font">
+                        "Ceramic Bangladesh is the premier bi-monthly authority on
+                        <span class="font-bold not-italic border-b-2 border-black">Architecture, Real Estate, and
+                            Construction.</span>"
+                    </p>
+                    <div class="space-y-6 text-gray-500">
+                        <p class="leading-relaxed">An initiative of the <strong class="text-black">BCMEA</strong>, we
+                            connect influencers and policymakers from Dhaka to Tokyo. Our reach spans across 180M
+                            population with 60% investment coverage.</p>
+                        <div class="flex gap-12 pt-4">
+                            <div class="border-l-2 border-black pl-4">
+                                <span class="block text-4xl font-black text-black leading-none">18+</span>
+                                <span class="text-[9px] uppercase font-bold tracking-widest mt-1 block">Issues</span>
+                            </div>
+                            <div class="border-l-2 border-black pl-4">
+                                <span class="block text-4xl font-black text-black leading-none">Global</span>
+                                <span class="text-[9px] uppercase font-bold tracking-widest mt-1 block">Footprint</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-24 border-y border-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="flex items-end justify-between mb-16">
+                    <h3 class="serif-font text-5xl font-black tracking-tighter text-black">Editorial <br> Board</h3>
+                    <div class="h-[2px] bg-black flex-grow mx-8 mb-4 hidden md:block"></div>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">Leadership</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-10 border border-gray-100 hover:border-black transition-all duration-500 group">
+                        <span class="text-[9px] text-gray-400 uppercase font-bold tracking-widest">Chief Advisor</span>
+                        <h4 class="text-2xl font-black mt-4 text-black group-hover:translate-x-2 transition-transform">
+                            Moynul Islam</h4>
+                    </div>
+                    <div class="p-10 bg-gray-50 border border-gray-200">
+                        <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Chief Editor</span>
+                        <h4 class="text-3xl font-black mt-4 text-black">Irfan Uddin</h4>
+                        <p class="text-xs text-gray-400 mt-2 font-medium italic">Ceramic Bangladesh</p>
+                    </div>
+                    <div class="p-10 border border-gray-100 hover:border-black transition-all duration-500 group">
+                        <span class="text-[9px] text-gray-400 uppercase font-bold tracking-widest">Editor</span>
+                        <h4 class="text-2xl font-black mt-4 text-black group-hover:translate-x-2 transition-transform">
+                            Salahuddin Talukder</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white border-b border-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-12 gap-16">
+                    <div class="md:col-span-4">
+                        <h5
+                            class="text-xs font-black uppercase tracking-[0.2em] mb-10 border-b-2 border-black pb-2 inline-block">
+                            Advisory Panel</h5>
+                        <div class="space-y-6 mb-10">
+                            <div>
+                                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Co-Chief
+                                    Advisors</p>
+                                <p class="text-lg font-bold text-gray-900">Md. Mamunur Rashid FCMA</p>
+                                <p class="text-lg font-bold text-gray-900">Abdul Hakim Sumon</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">Distinguished
+                                Panel</p>
+                            <ul class="text-gray-700 font-medium space-y-2">
+                                <li class="flex items-center gap-2 text-sm"><span class="w-1.5 h-1.5 bg-black"></span>
+                                    Engr. Ruslan Nasir</li>
+                                <li class="flex items-center gap-2 text-sm"><span class="w-1.5 h-1.5 bg-black"></span>
+                                    Ayesha Sanaa Asif Tabani</li>
+                                <li class="flex items-center gap-2 text-sm"><span class="w-1.5 h-1.5 bg-black"></span>
+                                    Rasheed Mymunul Islam</li>
+                                <li class="flex items-center gap-2 text-sm"><span class="w-1.5 h-1.5 bg-black"></span>
+                                    Md. Asif Iqbal Mahmud</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-8 grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h5
+                                class="text-xs font-black uppercase tracking-[0.2em] mb-10 border-b-2 border-black pb-2 inline-block">
+                                Editorial Core</h5>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Strategic
+                                        Planners</p>
+                                    <p class="text-sm font-bold">Anwar Haq, Gazi Nayeem Manzoor, Mohammadullah Shohag
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Coordinator
+                                    </p>
+                                    <p class="text-sm font-bold">Preety Dey</p>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Sub-Editors
+                                    </p>
+                                    <p class="text-sm font-bold">Khondoker Md Shoyeb (Asst.)</p>
+                                    <p class="text-sm font-bold">Rehnuma Tasnim Sheefa (Sr.)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5
+                                class="text-xs font-black uppercase tracking-[0.2em] mb-10 border-b-2 border-black pb-2 inline-block">
+                                Creative Force</h5>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Design Team
+                                    </p>
+                                    <p class="text-sm font-bold">Md. Ali Haider, Sohag Ahmed</p>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Photography
+                                    </p>
+                                    <p class="text-sm font-bold">Junaid Hasan Pranto, Rezwan Kobir Zaha</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h5
+                    class="text-xs font-black uppercase tracking-[0.2em] mb-12 border-b-2 border-black pb-2 inline-block">
+                    Feature Writers</h5>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Sajibur Rahman</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Kaniz F. Supriya</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Shahbaz Nahian</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Rafikul Islam</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Samia Sharmin Biva
+                        </p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Quazi Anika Afrin
+                        </p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Asfia A Jahan</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Samira Ahsan</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Aziz Hakim</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Tanisha Kabir</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Lamia Mehrin</p>
+                    </div>
+                    <div class="p-4 border border-gray-100 hover:border-black transition-all group">
+                        <p class="text-xs font-bold uppercase text-gray-800 group-hover:text-black">Fariha Hossain</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-gray-50 border-t border-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div>
+                        <h5 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-6">HR & IT
+                            Operations</h5>
+                        <ul class="text-sm space-y-2 font-bold text-gray-700">
+                            <li>Md. Zulfikar Ali Khan (HR), Sangita Roy (HR)</li>
+                            <li>Md Ashraful Hoque (IT), Sahidul Islam Abir (IT)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-6">Accounts &
+                            Business</h5>
+                        <ul class="text-sm space-y-2 font-bold text-gray-700">
+                            <li>Md. Nasir Uddin (Acc.), Afifa Chowdhury (Acc.)</li>
+                            <li>Md. Monir Hossain (Biz Dev), Md. Shakib (Biz Dev)</li>
+                        </ul>
+                    </div>
+                    <div class="md:text-right">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Published By</p>
+                        <h4 class="text-3xl font-black text-black">Zahedi Hassan Chowdhury</h4>
+                        <p class="text-xs font-bold mt-1 uppercase italic">On behalf of BCMEA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="design5" class="design-section">
+        <section class="p-4 md:p-10 bg-white">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                <div
+                    class="md:col-span-8 bg-gray-900 text-white p-12 md:p-24 rounded-3xl flex flex-col justify-end min-h-[500px]">
+                    <h5 class="text-gray-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-6">Ceramic Bangladesh
+                    </h5>
+                    <h2 class="text-5xl md:text-7xl font-bold mb-6 serif-font leading-tight">Built on <br> <span
+                            class="text-gray-400">Trust & Vision.</span></h2>
+                    <p class="max-w-md opacity-70 text-lg font-light leading-relaxed">
+                        BCMEA initiative connecting global influencers across the architecture and construction
+                        industry.
+                        Defining the art of Ceramic & Living since 2014.
+                    </p>
+                </div>
+
+                <div class="md:col-span-4 grid gap-4">
+                    <div
+                        class="bg-gray-100 rounded-3xl p-10 text-gray-900 flex flex-col justify-center border border-gray-200">
+                        <span class="text-6xl font-black tracking-tighter">180M</span>
+                        <p class="font-bold uppercase text-[10px] tracking-widest mt-2 text-gray-500">Population Impact
+                        </p>
+                        <div class="w-10 h-1 bg-black mt-4"></div>
+                    </div>
+                    <div class="bg-gray-200 rounded-3xl overflow-hidden relative group">
+                        <img src="assets/aboutus.webp"
+                            class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                            alt="About Us">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-10 px-4 md:px-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100">
+                    <h4 class="font-black text-xs uppercase tracking-widest text-gray-400 mb-8 border-b pb-2">Editorial
+                        Board</h4>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-xl font-bold">Moynul Islam</p>
+                            <p class="text-[10px] font-bold text-gray-400 uppercase">Chief Advisor</p>
+                        </div>
+                        <div class="py-4 border-y border-gray-200">
+                            <p class="text-2xl font-black">Irfan Uddin</p>
+                            <p class="text-[10px] font-bold text-gray-400 uppercase">Chief Editor</p>
+                        </div>
+                        <div>
+                            <p class="text-xl font-bold">Salahuddin A Talukder</p>
+                            <p class="text-[10px] font-bold text-gray-400 uppercase">Editor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl border border-gray-200">
+                    <h4 class="font-black text-xs uppercase tracking-widest text-gray-400 mb-8 border-b pb-2">Advisory
+                        Panel</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-[9px] font-black text-gray-400 uppercase mb-2">Co-Chief Advisors</p>
+                            <p class="text-sm font-bold">Md. Mamunur Rashid FCMA</p>
+                            <p class="text-sm font-bold">Abdul Hakim Sumon</p>
+                        </div>
+                        <div class="pt-4">
+                            <p class="text-[9px] font-black text-gray-400 uppercase mb-3">Distinguished Panel</p>
+                            <ul class="text-xs font-bold space-y-2 text-gray-700">
+                                <li>Engr. Ruslan Nasir</li>
+                                <li>Ayesha Sanaa Asif Tabani</li>
+                                <li>Rasheed Mymunul Islam</li>
+                                <li>Md. Asif Iqbal Mahmud</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 text-white p-10 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <h4
+                            class="font-black text-xs uppercase tracking-widest text-gray-500 mb-8 border-b border-gray-800 pb-2">
+                            Editorial Core</h4>
+                        <div class="space-y-4 text-xs">
+                            <p><span class="text-gray-500 block">Strategic Planners</span> Anwar Haq, Gazi Nayeem,
+                                Mohammadullah</p>
+                            <p><span class="text-gray-500 block">Coordinator</span> Preety Dey</p>
+                            <p><span class="text-gray-500 block">Sub-Editors</span> Khondoker Md Shoyeb, Rehnuma Tasnim
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-8 border-t border-gray-800">
+                        <p class="text-[9px] text-gray-500 uppercase mb-2">Publisher</p>
+                        <h4 class="text-xl font-bold">Zahedi Hassan Chowdhury</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-4 md:p-10 bg-white">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="md:col-span-2 bg-gray-50 p-10 rounded-3xl border border-gray-100">
+                    <h4 class="font-black text-xs uppercase tracking-widest text-gray-400 mb-8">Feature Writers</h4>
+                    <div class="grid grid-cols-2 gap-y-4 gap-x-6 text-[11px] font-bold text-gray-700">
+                        <span class="hover:text-black transition-colors cursor-default">Sajibur Rahman</span>
+                        <span class="hover:text-black transition-colors cursor-default">Kaniz F. Supriya</span>
+                        <span class="hover:text-black transition-colors cursor-default">Shahbaz Nahian</span>
+                        <span class="hover:text-black transition-colors cursor-default">Rafikul Islam</span>
+                        <span class="hover:text-black transition-colors cursor-default">Samia Sharmin Biva</span>
+                        <span class="hover:text-black transition-colors cursor-default">Quazi Anika Afrin</span>
+                        <span class="hover:text-black transition-colors cursor-default">Asfia A Jahan</span>
+                        <span class="hover:text-black transition-colors cursor-default">Samira Ahsan</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl border border-gray-200">
+                    <h4 class="font-black text-xs uppercase tracking-widest text-gray-400 mb-8">Creative Force</h4>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Design</p>
+                            <p class="text-xs font-bold text-gray-800">Md. Ali Haider, Sohag Ahmed</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Photography</p>
+                            <p class="text-xs font-bold text-gray-800">Junaid Hasan Pranto, Rezwan Kobir</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-10 rounded-3xl border border-gray-200">
+                    <h4 class="font-black text-xs uppercase tracking-widest text-gray-400 mb-8">Operations</h4>
+                    <div class="space-y-4">
+                        <p class="text-[9px] text-gray-400 uppercase font-bold">HR & IT</p>
+                        <p class="text-[11px] font-bold leading-relaxed">Zulfikar Ali, Sangita Roy, Ashraful Hoque,
+                            Sahidul Islam</p>
+                        <p class="text-[9px] text-gray-400 uppercase font-bold pt-2">Finance & Business</p>
+                        <p class="text-[11px] font-bold leading-relaxed">Nasir Uddin, Afifa Chowdhury, Monir Hossain,
+                            Md. Shakib</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="design6" class="design-section">
+        <section class="bg-[#eee] text-white py-20 border-b border-gray-200">
+            <div class="container mx-auto px-4 text-center">
+                <div
+                    class="inline-block px-4 py-1 border border-gray-400 text-gray-600 text-[10px] font-bold uppercase mb-8">
+                    About The Magazine</div>
+                <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-12 text-black">Premier <span
+                        class="text-gray-500">Authority</span></h1>
+                <div class="max-w-5xl mx-auto text-gray-600 text-md text-justify leading-relaxed">
+                    Ceramic Bangladesh is a bi-monthly magazine focused on Architecture, Real Estate, Construction and
+                    Lifestyle in Bangladesh. It also covers the ceramic industry, related sectors, real estate, interior
+                    design, culture, innovation, banking and economic issues. In a country with a GDP of $460 billion
+                    and a population of 180 million, some 60 per cent of annual investments go to the construction and
+                    housing sector, making it the largest sector in the domestic economy of Bangladesh.
+
+                    Published by the Bangladesh Ceramic Manufacturers and Exporters Association (BCMEA), this magazine
+                    has been in circulation since 2019, available in both print and digital versions. Led by Chief
+                    Editor Mr. Irfan Uddin and renowned journalist Mr. Salahuddin Ahmaad Talukder, the magazine boasts a
+                    talented team of writers, reporters, copy editors, designers, and photographers.
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-24 pb-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-20">
+                    <div>
+                        <h3 class="text-sm font-black uppercase text-gray-400 mb-10 tracking-widest">The Editorial Core
+                        </h3>
+                        <div class="space-y-12">
+                            <div class="flex items-start gap-6">
+                                <span class="text-4xl font-serif italic text-gray-200">01</span>
+                                <div>
+                                    <h4 class="text-xl font-bold">Irfan Uddin</h4>
+                                    <p class="text-gray-600 text-xs font-bold uppercase">Chief Editor</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-6">
+                                <span class="text-4xl font-serif italic text-gray-200">02</span>
+                                <div>
+                                    <h4 class="text-xl font-bold">Moynul Islam</h4>
+                                    <p class="text-gray-600 text-xs font-bold uppercase">Chief Advisor</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-6">
+                                <span class="text-4xl font-serif italic text-gray-200">03</span>
+                                <div>
+                                    <h4 class="text-xl font-bold">Salahuddin Talukder</h4>
+                                    <p class="text-gray-600 text-xs font-bold uppercase">Editor</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-10 border-t pt-10">
+                            <div>
+                                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Strategic
+                                    Planners</p>
+                                <ul class="text-sm space-y-1 text-gray-800 font-medium">
+                                    <li>Anwar Haq</li>
+                                    <li>Gazi Nayeem Manzoor</li>
+                                    <li>Mohammadullah Shohag</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Editorial
+                                    Support</p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-bold uppercase">Coordinator</p>
+                                        <p class="text-sm font-bold">Preety Dey</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-bold uppercase">Sub-Editors</p>
+                                        <p class="text-sm font-bold">Khondoker Md Shoyeb (Asst.)</p>
+                                        <p class="text-sm font-bold">Rehnuma Tasnim Sheefa (Sr.)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 px-12 py-12 rounded-lg">
+                        <h3 class="text-sm font-black uppercase text-gray-400 mb-10 tracking-widest">Advisory Panel</h3>
+                        <div class="space-y-10">
+                            <div class="pb-6 border-b">
+                                <p class="text-[10px] font-bold text-gray-400 uppercase mb-3 tracking-widest">CO-CHIEF
+                                    ADVISORS</p>
+                                <p class="text-xl font-bold text-gray-800">Md. Mamunur Rashid FCMA</p>
+                                <p class="text-xl font-bold text-gray-800">Abdul Hakim Sumon</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase mb-4 tracking-widest">
+                                    DISTINGUISHED MEMBERS</p>
+                                <ul class="text-md space-y-3 text-gray-800 font-medium">
+                                    <li class="flex items-center gap-3"><i
+                                            class="fas fa-circle text-[6px] text-gray-300"></i> Engr. Ruslan Nasir</li>
+                                    <li class="flex items-center gap-3"><i
+                                            class="fas fa-circle text-[6px] text-gray-300"></i> Ayesha Sanaa Asif Tabani
+                                    </li>
+                                    <li class="flex items-center gap-3"><i
+                                            class="fas fa-circle text-[6px] text-gray-300"></i> Rasheed Mymunul Islam
+                                    </li>
+                                    <li class="flex items-center gap-3"><i
+                                            class="fas fa-circle text-[6px] text-gray-300"></i> Md. Asif Iqbal Mahmud
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pt-10 border-t border-gray-200">
+                                <h4 class="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-widest">Creative
+                                    & Visuals</h4>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-bold">Design Team</p>
+                                        <p class="text-sm font-bold">Md. Ali Haider, Sohag Ahmed</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-bold">Photography</p>
+                                        <p class="text-sm font-bold">Junaid Hasan Pranto, Rezwan Kobir</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center gap-4 mb-12">
+                    <h3 class="text-sm font-black uppercase text-gray-400 tracking-[0.3em]">Feature Writers</h3>
+                    <div class="flex-grow h-[1px] bg-gray-200"></div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Sajibur Rahman</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Kaniz F. Supriya</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Shahbaz Nahian</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Rafikul Islam</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Samia Sharmin Biva</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Quazi Anika Afrin</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Asfia A Jahan</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Samira Ahsan</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Aziz Hakim</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Tanisha Kabir</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Lamia Mehrin</h4>
+                    </div>
+                    <div class="group border border-gray-100 p-6 hover:border-black transition-all bg-white">
+                        <h4 class="text-sm font-bold text-gray-600 group-hover:text-black">Fariha Hossain</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-t pt-16">
+                    <div>
+                        <h5 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-6">HR & IT
+                            Operations</h5>
+                        <ul class="text-sm space-y-2 text-gray-700 font-bold">
+                            <li>Md. Zulfikar Ali Khan (HR), Sangita Roy (HR)</li>
+                            <li>Md Ashraful Hoque (IT), Sahidul Islam Abir (IT)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-6">Accounts &
+                            Business</h5>
+                        <ul class="text-sm space-y-2 text-gray-700 font-bold">
+                            <li>Md. Nasir Uddin (Acc.), Afifa Chowdhury (Acc.)</li>
+                            <li>Md. Monir Hossain (Biz Dev), Md. Shakib (Biz Dev)</li>
+                        </ul>
+                    </div>
+                    <div class="md:text-right">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Published By</p>
+                        <h4 class="text-2xl font-black text-black">Zahedi Hassan Chowdhury</h4>
+                        <p class="text-xs font-bold text-gray-500 mt-1">ON BEHALF OF BCMEA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function switchDesign(designId, btn) {
+            document.querySelectorAll('.design-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(designId).classList.add('active');
+
+            document.querySelectorAll('.tab-btn').forEach(t => {
+                t.classList.remove('active-tab');
+                t.classList.add('text-gray-500');
+            });
+            btn.classList.add('active-tab');
+            btn.classList.remove('text-gray-500');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+    </style>
 </body>
+
 </html>
