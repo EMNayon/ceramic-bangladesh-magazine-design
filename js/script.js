@@ -67,27 +67,6 @@ const drawer = document.getElementById("side-drawer");
 const overlay = document.getElementById("mobile-menu-overlay");
 const stickySubscribe = document.getElementById("sticky-subscribe");
 
-// window.addEventListener("scroll", () => {
-//   if (window.scrollY > 160) {
-//     stickyLogo.classList.remove("hidden");
-//     setTimeout(() => stickyLogo.classList.remove("opacity-0"), 10);
-//     desktopMenu.classList.add("hidden");
-//     hamburgerBtn.classList.remove("hidden");
-//     if (stickySubscribe) {
-//       stickySubscribe.classList.remove("hidden");
-//       stickySubscribe.classList.add("inline-block");
-//     }
-//   } else {
-//     stickyLogo.classList.add("opacity-0");
-//     stickyLogo.classList.add("hidden");
-//     desktopMenu.classList.remove("hidden");
-//     hamburgerBtn.classList.add("hidden");
-//     if (stickySubscribe) {
-//       stickySubscribe.classList.add("hidden");
-//       stickySubscribe.classList.remove("inline-block");
-//     }
-//   }
-// });
 window.addEventListener("scroll", () => {
     const stickyNav = document.getElementById("sticky-nav");
     const isMobile = window.innerWidth < 768; // Mobile check
