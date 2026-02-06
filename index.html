@@ -346,7 +346,7 @@
   <!-- hero section end -->
 
   <!-- Ads -->
-  <div class="container mx-auto px-4 my-8">
+  <!-- <div class="container mx-auto px-4 my-8">
     <div class="swiper myAdSwiper w-full h-32 bg-gray-200 overflow-hidden relative">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -368,7 +368,57 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+  <!-- Ads -->
+  <section class="container mx-auto px-4 py-8">
+    <div id="ads-grid-container" class=" grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <div
+        class="swiper myAdSwiperGrid w-full h-24 md:h-32 bg-gray-100 overflow-hidden relative shadow-sm border border-gray-100">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="assets/imgs/OMERA.png" alt="Ad 1" class="object-cover w-full h-full" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="assets/imgs/Subscription-Banner-01-1-scaled.jpg" alt="Ad 2"
+                class="object-cover w-full h-full" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="assets/imgs/CBM-WEB-AD-NEW-YEAR-2026-01-scaled.jpg" alt="Ad 3"
+                class="object-cover w-full h-full" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="swiper myAdSwiperGrid w-full h-24 md:h-32 bg-gray-100 overflow-hidden relative shadow-sm border border-gray-100">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="assets/imgs/CBM-WEB-AD-NEW-YEAR-2026-01-scaled.jpg" alt="Ad 1"
+                class="object-cover w-full h-full" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="assets/imgs/570-px-X-115-px-01.jpg" alt="Ad 2" class="object-cover w-full h-full" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="assets/imgs/OMERA.png" alt="Ad 3" class="object-cover w-full h-full" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- latest post start -->
   <section class="container mx-auto px-4 mb-12">
@@ -613,7 +663,7 @@
                   Dhaka Stock Exchange sees rapid growth in construction
                   sector
                 </h5>
-                  <span class="text-[10px] text-gray-400 mt-2"><i class="far fa-user"></i> By Editor</span>
+                <span class="text-[10px] text-gray-400 mt-2"><i class="far fa-user"></i> By Editor</span>
               </div>
             </article>
           </a>
@@ -651,7 +701,8 @@
               </div>
             </article>
           </a>
-          <a href="" class="text-sm text-brand-red font-bold hover:underline text-end"> See More <i class="fas fa-arrow-right"></i> </a>
+          <a href="" class="text-sm text-brand-red font-bold hover:underline text-end"> See More <i
+              class="fas fa-arrow-right"></i> </a>
         </div>
 
         <div class="lg:col-span-3">
@@ -989,7 +1040,7 @@
 
   <!-- Ads -->
   <section class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+    <div id="ads-grid-container" class=" grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
       <div
         class="swiper myAdSwiper w-full h-24 md:h-32 bg-gray-100 overflow-hidden relative shadow-sm border border-gray-100">
         <div class="swiper-wrapper">
@@ -1223,10 +1274,11 @@
         <p class="text-gray-500 mb-8">
           Subscribe to get our monthly edition and exclusive industry insights directly in your inbox.
         </p>
-        <div class="flex flex-col sm:flex-row shadow-lg rounded-2xl sm:rounded-full overflow-hidden bg-white p-1 gap-2 sm:gap-0">
+        <div
+          class="flex flex-col sm:flex-row shadow-lg rounded-2xl sm:rounded-full overflow-hidden bg-white p-1 gap-2 sm:gap-0">
           <input type="email" placeholder="Enter your email address..."
             class="flex-grow px-6 py-4 sm:py-3 outline-none text-gray-700 text-sm" />
-          
+
           <button
             class="bg-black text-white px-8 py-4 sm:py-3 rounded-xl sm:rounded-full font-bold uppercase text-xs hover:bg-gray-200 hover:text-black transition duration-300 w-full sm:w-auto">
             Subscribe
@@ -1240,7 +1292,7 @@
         </div>
 
         <div class="relative bg-[#F3F4F6] px-6 flex flex-col md:flex-row items-center gap-6 md:gap-6">
-          
+
           <div class="flex flex-col md:flex-row items-center gap-6">
             <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Presented By</span>
             <img src="assets/imgs/CBM-logo-layer.png" class="h-10 md:h-12 w-auto" alt="CBM" />
@@ -1320,68 +1372,23 @@
             </button>
           </div>
         </div>
-
-        <!-- <div class="p-4 bg-gray-50/50">
+        <div class="p-4 border-b border-gray-100">
           <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <i class="fas fa-shoe-prints"></i> Footer Design
+            <i class="fas fa-ad"></i> Ads Layout
           </p>
           <div class="flex flex-col gap-2">
-            <button onclick="switchFooter('footer-1')"
-              class="px-3 py-2 bg-white hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition border border-gray-200 shadow-sm">
-              1. Corporate Light
+            <button onclick="setAdsLayout('dual')"
+              class="px-3 py-2 bg-gray-50 hover:bg-black hover:text-white rounded text-xs font-bold text-left transition border border-gray-200 flex items-center gap-2 group">
+              <i class="fas fa-columns text-gray-400 group-hover:text-white"></i> 2 Columns (Grid)
             </button>
 
-            <button onclick="switchFooter('footer-2')"
-              class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left transition shadow-sm">
-              2. Modern Dark
-            </button>
-
-            <button onclick="switchFooter('footer-3')"
-              class="px-3 py-2 bg-[#f9f7f2] border hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              3. Editorial Center
-            </button>
-
-            <button onclick="switchFooter('footer-4')"
-              class="px-3 py-2 bg-white border border-l-4 border-l-brand-red hover:bg-gray-50 rounded text-xs font-bold text-left transition shadow-sm">
-              4. Split Layout
-            </button>
-
-            <button onclick="switchFooter('footer-5')"
-              class="px-3 py-2 bg-[#0f172a] text-blue-100 hover:bg-blue-900 rounded text-xs font-bold text-left transition shadow-sm">
-              5. Big Grid (Dark)
-            </button>
-
-            <button onclick="switchFooter('footer-6')"
-              class="px-3 py-2 bg-gray-200 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              6. Boxed Floating
-            </button>
-
-            <button onclick="switchFooter('footer-7')"
-              class="px-3 py-2 bg-white border border-black hover:bg-black hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              7. The "Vogue" Style
-            </button>
-
-            <button onclick="switchFooter('footer-8')"
-              class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left transition shadow-sm">
-              8. Dark Architectural
-            </button>
-
-            <button onclick="switchFooter('footer-9')"
-              class="px-3 py-2 bg-gray-100 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              9. Centered Elegance
-            </button>
-
-            <button onclick="switchFooter('footer-10')"
-              class="px-3 py-2 bg-white border border-gray-200 hover:bg-gray-50 rounded text-xs font-bold text-left transition shadow-sm">
-              10. Asymmetric Modern
-            </button>
-
-            <button onclick="switchFooter('footer-11')"
-              class="px-3 py-2 bg-brand-red text-white hover:bg-red-800 rounded text-xs font-bold text-left transition shadow-sm">
-              11. Two Tone (Red)
+            <button onclick="setAdsLayout('single')"
+              class="px-3 py-2 bg-gray-50 hover:bg-black hover:text-white rounded text-xs font-bold text-left transition border border-gray-200 flex items-center gap-2 group">
+              <i class="fas fa-square text-gray-400 group-hover:text-white"></i> 1 Column (Full Width)
             </button>
           </div>
-        </div> -->
+        </div>
+
       </div>
     </div>
   </div>
@@ -1427,6 +1434,77 @@
     </div>
   </div>
   <!-- search overlay end -->
+  <script>    
+    let originalSlides = [];
+
+    function setAdsLayout(type) {
+      const adsContainer = document.getElementById('ads-grid-container');
+      const sliders = adsContainer.querySelectorAll('.swiper');
+
+      // Prothombari slides gulo save kore rakha holo
+      if (originalSlides.length === 0) {
+        sliders.forEach(slider => {
+          const slides = Array.from(slider.querySelectorAll('.swiper-slide'));
+          originalSlides.push(slides);
+        });
+      }
+
+      const firstWrapper = sliders[0].querySelector('.swiper-wrapper');
+      const secondWrapper = sliders[1].querySelector('.swiper-wrapper');
+
+      if (type === 'single') {
+        // --- MERGE LOGIC ---
+        adsContainer.classList.remove('md:grid-cols-2');
+        adsContainer.classList.add('md:grid-cols-1');
+
+        // Shob slide prothom slider-e niye asha
+        secondWrapper.innerHTML = ''; // Second ta khali kora
+        firstWrapper.innerHTML = '';  // First ta clear kore notun kore shob add kora
+
+        originalSlides.flat().forEach(slide => {
+          firstWrapper.appendChild(slide.cloneNode(true));
+        });
+
+        sliders[1].classList.add('hidden'); // Second slider hide
+      } else {
+        // --- SPLIT LOGIC (REVERSE) ---
+        adsContainer.classList.remove('md:grid-cols-1');
+        adsContainer.classList.add('md:grid-cols-2');
+
+        sliders[1].classList.remove('hidden'); // Second slider show
+
+        firstWrapper.innerHTML = '';
+        secondWrapper.innerHTML = '';
+
+        // Original distribution-e fire jawa
+        originalSlides[0].forEach(slide => firstWrapper.appendChild(slide.cloneNode(true)));
+        originalSlides[1].forEach(slide => secondWrapper.appendChild(slide.cloneNode(true)));
+      }
+
+      // Swiper destroy kore notun kore initialize kora dorkar jate dynamic content thik thake
+      refreshSwipers();
+    }
+
+    function refreshSwipers() {
+      // Apnar Swiper initialization variable jodi myAdSwiper hoy
+      if (window.myAdSwiper) {
+        if (Array.isArray(window.myAdSwiper)) {
+          window.myAdSwiper.forEach(s => {
+            s.destroy(true, true);
+          });
+        } else {
+          window.myAdSwiper.destroy(true, true);
+        }
+      }
+
+      // Notun kore initialization (script.js e jeta ache sheita ekhane abar call hobe)
+      window.myAdSwiper = new Swiper('.myAdSwiperGrid', {
+        loop: true,
+        autoplay: { delay: 3000 },
+        // baki settings...
+      });
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
