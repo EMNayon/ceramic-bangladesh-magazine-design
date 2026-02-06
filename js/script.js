@@ -68,41 +68,41 @@ const overlay = document.getElementById("mobile-menu-overlay");
 const stickySubscribe = document.getElementById("sticky-subscribe");
 
 window.addEventListener("scroll", () => {
-    const stickyNav = document.getElementById("sticky-nav");
-    const isMobile = window.innerWidth < 768; // Mobile check
+  const stickyNav = document.getElementById("sticky-nav");
+  const isMobile = window.innerWidth < 768; // Mobile check
 
-    if (window.scrollY > 160) {
-        // Sticky Nav show kora (Mobile + Desktop)
-        stickyNav.classList.remove("hidden");
-        
-        stickyLogo.classList.remove("hidden");
-        setTimeout(() => stickyLogo.classList.remove("opacity-0"), 10);
-        
-        desktopMenu.classList.add("hidden");
-        hamburgerBtn.classList.remove("hidden");
+  if (window.scrollY > 160) {
+    // Sticky Nav show kora (Mobile + Desktop)
+    stickyNav.classList.remove("hidden");
 
-        if(stickySubscribe) {
-            stickySubscribe.classList.remove("hidden");
-            stickySubscribe.classList.add("inline-block");
-        }
-    } else {
-        // Scroll 160 er niche gele Mobile e purapuri hide thakbe
-        // Desktop e abar menu fire ashbe
-        if (isMobile) {
-            stickyNav.classList.add("hidden");
-        } else {
-            stickyNav.classList.remove("hidden"); // Desktop e menu thakbe
-            stickyLogo.classList.add("opacity-0");
-            stickyLogo.classList.add("hidden");
-            desktopMenu.classList.remove("hidden");
-            hamburgerBtn.classList.add("hidden");
-        }
+    stickyLogo.classList.remove("hidden");
+    setTimeout(() => stickyLogo.classList.remove("opacity-0"), 10);
 
-        if(stickySubscribe) {
-            stickySubscribe.classList.add("hidden");
-            stickySubscribe.classList.remove("inline-block");
-        }
+    desktopMenu.classList.add("hidden");
+    hamburgerBtn.classList.remove("hidden");
+
+    if (stickySubscribe) {
+      stickySubscribe.classList.remove("hidden");
+      stickySubscribe.classList.add("inline-block");
     }
+  } else {
+    // Scroll 160 er niche gele Mobile e purapuri hide thakbe
+    // Desktop e abar menu fire ashbe
+    if (isMobile) {
+      stickyNav.classList.add("hidden");
+    } else {
+      stickyNav.classList.remove("hidden"); // Desktop e menu thakbe
+      stickyLogo.classList.add("opacity-0");
+      stickyLogo.classList.add("hidden");
+      desktopMenu.classList.remove("hidden");
+      hamburgerBtn.classList.add("hidden");
+    }
+
+    if (stickySubscribe) {
+      stickySubscribe.classList.add("hidden");
+      stickySubscribe.classList.remove("inline-block");
+    }
+  }
 });
 
 function toggleMenu() {
@@ -159,27 +159,29 @@ document.addEventListener("keydown", function (event) {
 });
 
 // 1. Initialize 3D Effect Slider
-var swiper3D = new Swiper(".mySwiper", {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  loop: true,
-  coverflowEffect: {
-    rotate: 30,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-  },
-});
+    const ceramicSwiper = new Swiper(".ceramicBangladeshSlider", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: false,
+      slidesPerView: 3, 
+      loop: true,
+      coverflowEffect: {
+        rotate: -35,
+        stretch: 30,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  
 
 // 2. Initialize Partner Slider (Carousel)
 const partnerSwiper = new Swiper(".partnerSwiper", {

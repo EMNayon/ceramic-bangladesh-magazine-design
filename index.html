@@ -39,6 +39,7 @@
         },
       },
     };
+
   </script>
 </head>
 
@@ -1127,98 +1128,54 @@
   </section>
 
   <!-- 3d slider start -->
-  <section>
-    <div class="relative max-w-5xl mx-auto">
-      <div class="swiper mySwiper swiper-3d-slider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide swiper-slide-custom">
-            <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
-            <div class="absolute top-8 right-8 text-black text-right">
-              <span class="font-bold text-xl uppercase">Ceramic <br />
-                <span class="text-xs font-normal">Bangladesh</span></span>
-            </div>
-          </div>
 
-          <div class="swiper-slide swiper-slide-custom">
-            <img
-              src="https://images.unsplash.com/photo-1767963758785-b9def36c13e3?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="" />
-            <div class="absolute top-8 right-8 text-black text-right">
-              <span
-                class="text-[180px] leading-none font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-red-600 filter drop-shadow-lg">5</span>
-              <span
-                class="absolute bottom-4 right-[-20px] text-white font-handwriting text-4xl italic">Anniversary</span>
-            </div>
-          </div>
+  <div class="max-w-6xl mx-auto py-16 text-center">
 
-          <div class="swiper-slide swiper-slide-custom">
-            <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
-            <div class="absolute top-8 right-8 text-black text-right">
-              <span class="font-bold text-xl uppercase">Ceramic <br />
-                <span class="text-xs font-normal">Bangladesh</span></span>
-            </div>
-          </div>
-
-          <div class="swiper-slide swiper-slide-custom">
-            <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" />
-            <div class="absolute top-8 right-8 text-black text-right">
-              <span class="font-bold text-xl uppercase">Ceramic <br />
-                <span class="text-xs font-normal">Bangladesh</span></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- <div class="max-w-6xl mx-auto py-16 text-center">
-    <h2 class="text-3xl font-semibold mb-10">Swiper 11 Coverflow Tailwind</h2>
-
-    <div class="swiper3D swiper 3DSwiper">
+    <div class="swiper ceramicBangladeshSlider">
       <div class="swiper-wrapper">
 
-        <div class="swiper-slide3D flex items-end justify-center text-white text-xl font-semibold"
-          style="background-image:url('assets/OIP.webp')">
+        <div class="swiper-slide flex items-end justify-center text-white text-xl font-semibold"
+          style="background-image:url('assets/imgs/OIP.webp')">
           Slide 1
         </div>
 
-        <div class="swiper-slide3D flex items-end justify-center text-white text-xl font-semibold"
-          style="background-image:url('assets/CBDM-1ST-ISSUE-COVER-01.jpg')">
+        <div class="swiper-slide flex items-end justify-center text-white text-xl font-semibold"
+          style="background-image:url('assets/imgs/CBDM-1ST-ISSUE-COVER-01.jpg')">
           Slide 2
         </div>
 
-        <div class="swiper-slide3D flex items-end justify-center text-white text-xl font-semibold"
-          style="background-image:url('assets/bcmea-Ceramic-Bangladesh-Magazine-4th-issue.jpg')">
+        <div class="swiper-slide flex items-end justify-center text-white text-xl font-semibold"
+          style="background-image:url('assets/imgs/bcmea-Ceramic-Bangladesh-Magazine-4th-issue.jpg')">
           Slide 3
         </div>
 
-        <div class="swiper-slide3D flex items-end justify-center text-white text-xl font-semibold"
-          style="background-image:url('assets/CBDM-1ST-ISSUE-COVER-01.jpg')">
+        <div class="swiper-slide flex items-end justify-center text-white text-xl font-semibold"
+          style="background-image:url('assets/imgs/CBDM-1ST-ISSUE-COVER-01.jpg')">
           Slide 4
         </div>
 
-        <div class="swiper-slide3D flex items-end justify-center text-white text-xl font-semibold"
-          style="background-image:url('assets/OIP.webp')">
+        <div class="swiper-slide flex items-end justify-center text-white text-xl font-semibold"
+          style="background-image:url('assets/imgs/OIP.webp')">
           Slide 5
         </div>
 
-        <div class="swiper-slide3D flex items-end justify-center text-white text-xl font-semibold"
-          style="background-image:url('assets/bcmea-Ceramic-Bangladesh-Magazine-4th-issue.jpg')">
+        <div class="swiper-slide flex items-end justify-center text-white text-xl font-semibold"
+          style="background-image:url('assets/imgs/bcmea-Ceramic-Bangladesh-Magazine-4th-issue.jpg')">
           Slide 6
         </div>
 
       </div>
+
+      <!-- Pagination -->
       <div class="swiper-pagination"></div>
+
+      <!-- Navigation -->
       <div class="swiper-button-next text-blue-500"></div>
       <div class="swiper-button-prev text-blue-500"></div>
     </div>
-  </div> -->
+
+  </div>
+
   <!-- 3d slider end-->
 
   <!-- Our Partners start -->
@@ -1403,10 +1360,10 @@
               Logo Left + Right Ad
             </button>
             <button onclick="setHeaderLayout('dual-ads')"
-      class="px-3 py-2 bg-gray-50 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200 flex items-center gap-2 group">
-      <i class="fas fa-columns text-gray-400 group-hover:text-white transition"></i>
-      Logo Center + Dual Ads
-    </button>
+              class="px-3 py-2 bg-gray-50 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200 flex items-center gap-2 group">
+              <i class="fas fa-columns text-gray-400 group-hover:text-white transition"></i>
+              Logo Center + Dual Ads
+            </button>
 
             <button onclick="setHeaderLayout('center')"
               class="px-3 py-2 bg-gray-50 hover:bg-black hover:text-white rounded text-xs font-bold text-left w-full transition border border-gray-200 flex items-center gap-2 group">
@@ -1552,6 +1509,9 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
   <!-- <script src="js/flipbook.js"></script> -->
+  <script>
+
+  </script>
 </body>
 
 </html>
