@@ -194,3 +194,35 @@
 .swiper-pagination-bullet-active {
     background: #333;
 }
+
+
+/* details page */
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    section.bg-white.py-12,
+    section.bg-white.py-12 * {
+        visibility: visible;
+    }
+
+    section.bg-white.py-12 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .lg\:col-span-4,
+    .flex.flex-wrap.items-center.justify-between.border-y,
+    #settings-panel,
+    .mt-10.pt-6.border-t,
+    .mt-16.pt-10.border-t-2 {
+        display: none !important;
+    }
+}

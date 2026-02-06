@@ -2,48 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ceramic Bangladesh Magazine Clone</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ceramic Bangladesh Magazine Clone</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
-        rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    </script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  </script>
 
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/flipbook.css"> -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-red': '#D32F2F', // Based on the "15th Issue" red section
-                        'brand-dark': '#1a1a1a',
-                        'brand-gray': '#f4f4f4'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/flipbook.css"> -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-red': '#D32F2F', // Based on the "15th Issue" red section
+            'brand-dark': '#1a1a1a',
+            'brand-gray': '#f4f4f4'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
         }
-    </script>
+      }
+    }
+  </script>
 </head>
 
 <body class="bg-white text-gray-800 font-sans">
 
-    <!-- header section start -->
+  <!-- header section start -->
   <div class="hidden md:block border-b text-xs py-2 bg-gray-50 text-gray-500">
     <div class="container mx-auto px-4 flex justify-between items-center">
       <div class="flex items-center space-x-6">
@@ -99,7 +99,11 @@
             SUBSCRIBE
           </a>
           <button onclick="toggleMenu()" class="text-brand-red text-xl">
-             <svg fill="none" class="w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M3.333 23.641v-2h13.039v2H3.333Zm0-6.526v-2h6.308v2H3.333Zm0-6.525v-2h6.308v2H3.333Zm23.929 13.077-5.16-5.121a5.86 5.86 0 0 1-1.66.844c-.599.193-1.208.29-1.827.29-1.67 0-3.094-.584-4.272-1.752-1.177-1.167-1.766-2.586-1.766-4.255 0-1.67.589-3.087 1.767-4.255 1.178-1.168 2.603-1.751 4.274-1.751 1.672 0 3.096.583 4.272 1.751 1.176 1.168 1.764 2.584 1.764 4.249 0 .619-.097 1.228-.29 1.827a5.51 5.51 0 0 1-.856 1.647l5.159 5.12-1.405 1.406Zm-8.647-5.988c1.122 0 2.076-.388 2.861-1.166.785-.778 1.178-1.725 1.178-2.84 0-1.115-.393-2.062-1.178-2.84-.785-.777-1.739-1.166-2.86-1.166-1.122 0-2.076.389-2.861 1.166-.785.778-1.178 1.725-1.178 2.84 0 1.115.393 2.062 1.178 2.84.785.777 1.739 1.166 2.86 1.166Z" fill="#0D0D0D"></path></svg>
+            <svg fill="none" class="w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+              <path
+                d="M3.333 23.641v-2h13.039v2H3.333Zm0-6.526v-2h6.308v2H3.333Zm0-6.525v-2h6.308v2H3.333Zm23.929 13.077-5.16-5.121a5.86 5.86 0 0 1-1.66.844c-.599.193-1.208.29-1.827.29-1.67 0-3.094-.584-4.272-1.752-1.177-1.167-1.766-2.586-1.766-4.255 0-1.67.589-3.087 1.767-4.255 1.178-1.168 2.603-1.751 4.274-1.751 1.672 0 3.096.583 4.272 1.751 1.176 1.168 1.764 2.584 1.764 4.249 0 .619-.097 1.228-.29 1.827a5.51 5.51 0 0 1-.856 1.647l5.159 5.12-1.405 1.406Zm-8.647-5.988c1.122 0 2.076-.388 2.861-1.166.785-.778 1.178-1.725 1.178-2.84 0-1.115-.393-2.062-1.178-2.84-.785-.777-1.739-1.166-2.86-1.166-1.122 0-2.076.389-2.861 1.166-.785.778-1.178 1.725-1.178 2.84 0 1.115.393 2.062 1.178 2.84.785.777 1.739 1.166 2.86 1.166Z"
+                fill="#0D0D0D"></path>
+            </svg>
 
           </button>
         </div>
@@ -169,7 +173,11 @@
 
           <button id="hamburger-btn" onclick="toggleMenu()"
             class="hidden text-2xl text-gray-700 hover:text-brand-red focus:outline-none">
-             <svg fill="none" class="w-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M3.333 23.641v-2h13.039v2H3.333Zm0-6.526v-2h6.308v2H3.333Zm0-6.525v-2h6.308v2H3.333Zm23.929 13.077-5.16-5.121a5.86 5.86 0 0 1-1.66.844c-.599.193-1.208.29-1.827.29-1.67 0-3.094-.584-4.272-1.752-1.177-1.167-1.766-2.586-1.766-4.255 0-1.67.589-3.087 1.767-4.255 1.178-1.168 2.603-1.751 4.274-1.751 1.672 0 3.096.583 4.272 1.751 1.176 1.168 1.764 2.584 1.764 4.249 0 .619-.097 1.228-.29 1.827a5.51 5.51 0 0 1-.856 1.647l5.159 5.12-1.405 1.406Zm-8.647-5.988c1.122 0 2.076-.388 2.861-1.166.785-.778 1.178-1.725 1.178-2.84 0-1.115-.393-2.062-1.178-2.84-.785-.777-1.739-1.166-2.86-1.166-1.122 0-2.076.389-2.861 1.166-.785.778-1.178 1.725-1.178 2.84 0 1.115.393 2.062 1.178 2.84.785.777 1.739 1.166 2.86 1.166Z" fill="#0D0D0D"></path></svg>
+            <svg fill="none" class="w-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+              <path
+                d="M3.333 23.641v-2h13.039v2H3.333Zm0-6.526v-2h6.308v2H3.333Zm0-6.525v-2h6.308v2H3.333Zm23.929 13.077-5.16-5.121a5.86 5.86 0 0 1-1.66.844c-.599.193-1.208.29-1.827.29-1.67 0-3.094-.584-4.272-1.752-1.177-1.167-1.766-2.586-1.766-4.255 0-1.67.589-3.087 1.767-4.255 1.178-1.168 2.603-1.751 4.274-1.751 1.672 0 3.096.583 4.272 1.751 1.176 1.168 1.764 2.584 1.764 4.249 0 .619-.097 1.228-.29 1.827a5.51 5.51 0 0 1-.856 1.647l5.159 5.12-1.405 1.406Zm-8.647-5.988c1.122 0 2.076-.388 2.861-1.166.785-.778 1.178-1.725 1.178-2.84 0-1.115-.393-2.062-1.178-2.84-.785-.777-1.739-1.166-2.86-1.166-1.122 0-2.076.389-2.861 1.166-.785.778-1.178 1.725-1.178 2.84 0 1.115.393 2.062 1.178 2.84.785.777 1.739 1.166 2.86 1.166Z"
+                fill="#0D0D0D"></path>
+            </svg>
           </button>
         </div>
       </div>
@@ -243,176 +251,266 @@
       </div>
     </div>
   </div>
-    <!-- header section end -->
+  <!-- header section end -->
 
-    <section class="bg-white py-12 font-sans">
-        <div class="container mx-auto px-4">
+  <section class="bg-white py-12 font-sans">
+    <div class="container mx-auto px-4">
 
-            <div class="max-w-4xl mb-8">
-                <div class="flex items-center gap-3 text-sm mb-3">
-                    <span
-                        class="bg-red-50 text-[#E3000F] px-2 py-1 rounded font-bold uppercase text-xs tracking-wider">Architecture</span>
-                    <span class="text-gray-500">|</span>
-                    <span class="text-gray-500"><i class="far fa-clock mr-1"></i> Jan 20, 2026</span>
-                </div>
-                <h1 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight mb-4">
-                    The Future of Sustainable Living: blending Nature with Modern Architecture
-                </h1>
-                <div class="flex items-center gap-2">
-                    <img src="https://placehold.co/40x40" class="rounded-full w-10 h-10 border border-gray-200"
-                        alt="Author">
-                    <div>
-                        <p class="text-sm font-bold text-gray-800">By Shama Nimkar</p>
-                        <p class="text-xs text-gray-500">Senior Architect & Writer</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-
-                <div class="lg:col-span-8">
-
-                    <div class="rounded-xl overflow-hidden shadow-sm mb-8">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                            alt="Article Cover" class="w-full h-auto object-cover">
-                        <p class="text-xs text-gray-500 mt-2 italic text-center">Photo Courtesy: Unsplash / Modern
-                            Living</p>
-                    </div>
-
-                    <div class="flex flex-wrap items-center justify-between border-y border-gray-100 py-4 mb-8">
-                        <span class="font-bold text-gray-700 uppercase text-sm tracking-widest">Share this
-                            article:</span>
-                        <div class="flex gap-3">
-                            <a href="#"
-                                class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="#"
-                                class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center hover:bg-sky-600 transition"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a href="#"
-                                class="w-10 h-10 rounded-full bg-blue-800 text-white flex items-center justify-center hover:bg-blue-900 transition"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a href="#"
-                                class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition"><i
-                                    class="fab fa-whatsapp"></i></a>
-                            <button
-                                class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center hover:bg-gray-300 transition"
-                                title="Copy Link"><i class="fas fa-link"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                        <p
-                            class="first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-[#E3000F] first-letter:mr-3 first-letter:float-left">
-                            Sustainable architecture is no longer just a trend; it is a necessity for our future. As
-                            urbanization grows, the need for spaces that breathe and interact with nature becomes
-                            paramount. In this exclusive feature, we explore how top architects in Dhaka are redefining
-                            luxury living by integrating green spaces into vertical structures.
-                        </p>
-
-                        <h3 class="text-2xl font-serif font-bold text-gray-900 mt-8 mb-4">The Integration of Green
-                            Spaces</h3>
-                        <p class="mb-6">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-
-                        <blockquote
-                            class="border-l-4 border-[#E3000F] pl-4 italic text-xl text-gray-800 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg">
-                            "Design is not just what it looks like and feels like. Design is how it works in harmony
-                            with the environment."
-                        </blockquote>
-
-                        <p class="mb-6">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-
-                        <h3 class="text-2xl font-serif font-bold text-gray-900 mt-8 mb-4">Material Innovation</h3>
-                        <p class="mb-6">
-                            Using locally sourced materials such as terracotta and red bricks not only reduces the
-                            carbon footprint but also pays homage to the rich history of Bengali architecture.
-                        </p>
-
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                            class="w-full rounded-lg my-6 shadow-sm" alt="Detail Shot">
-
-                        <p>
-                            The final result is a masterpiece that stands the test of time, proving that luxury and
-                            sustainability can coexist beautifully.
-                        </p>
-                    </div>
-
-                    <div class="mt-10 pt-6 border-t border-gray-200">
-                        <span class="font-bold text-gray-900 mr-2">Tags:</span>
-                        <a href="#"
-                            class="inline-block bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full hover:bg-[#E3000F] hover:text-white transition mb-2">Architecture</a>
-                        <a href="#"
-                            class="inline-block bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full hover:bg-[#E3000F] hover:text-white transition mb-2">Dhaka</a>
-                        <a href="#"
-                            class="inline-block bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full hover:bg-[#E3000F] hover:text-white transition mb-2">Eco-Friendly</a>
-                    </div>
-
-                </div>
-
-                <div class="lg:col-span-4 space-y-8">
-
-                    <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center">
-                        <span
-                            class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">Advertisement</span>
-                        <a href="#" class="block overflow-hidden rounded group">
-                            <img src="assets/imgs/Sheltech-Prime-1Mx1M-tiles-ad-400X400px-2024.jpg" alt="Ad 1"
-                                class="w-full h-auto object-cover group-hover:opacity-90 transition">
-                        </a>
-                    </div>
-
-                    <div class="sticky top-24">
-                        <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center shadow-sm">
-                            <span
-                                class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">Sponsored</span>
-                            <a href="#" class="block overflow-hidden rounded group">
-                                <img src="assets/imgs/Subscription-Banner-01-1-scaled.jpg" alt="Ad 2"
-                                    class="w-full h-[500px] object-cover group-hover:opacity-90 transition">
-                            </a>
-                            <button
-                                class="mt-4 w-full bg-[#E3000F] text-white py-2 text-sm font-bold uppercase hover:bg-red-700 transition rounded">
-                                Visit Partner
-                            </button>
-                        </div>
-
-                        <div class="mt-8">
-                            <h4 class="font-serif font-bold text-lg mb-4 border-l-4 border-[#E3000F] pl-3">Most Read
-                            </h4>
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="group flex gap-3">
-                                        <span
-                                            class="text-3xl font-bold text-gray-200 group-hover:text-[#E3000F]">1</span>
-                                        <span
-                                            class="text-sm font-semibold text-gray-700 group-hover:text-[#E3000F] leading-tight">Top
-                                            10 Interior Trends in 2026</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="group flex gap-3">
-                                        <span
-                                            class="text-3xl font-bold text-gray-200 group-hover:text-[#E3000F]">2</span>
-                                        <span
-                                            class="text-sm font-semibold text-gray-700 group-hover:text-[#E3000F] leading-tight">Best
-                                            Tiles for Bathroom Renovation</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+      <div class="max-w-4xl mb-8">
+        <div class="flex items-center gap-3 text-sm mb-3">
+          <span
+            class="bg-red-50 text-[#E3000F] px-2 py-1 rounded font-bold uppercase text-xs tracking-wider">Architecture</span>
+          <span class="text-gray-500">|</span>
+          <span class="text-gray-500"><i class="far fa-clock mr-1"></i> Jan 20, 2026</span>
         </div>
-    </section>
+        <h1 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight mb-4">
+          The Future of Sustainable Living: blending Nature with Modern Architecture
+        </h1>
+        <div class="flex items-center gap-2">
+          <img src="https://placehold.co/40x40" class="rounded-full w-10 h-10 border border-gray-200" alt="Author">
+          <div>
+            <p class="text-sm font-bold text-gray-800">By Shama Nimkar</p>
+            <p class="text-xs text-gray-500">Senior Architect & Writer</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+
+        <div class="lg:col-span-8">
+
+          <div class="rounded-xl overflow-hidden shadow-sm mb-8">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+              alt="Article Cover" class="w-full h-auto object-cover">
+            <p class="text-xs text-gray-500 mt-2 italic text-center">Photo Courtesy: Unsplash / Modern
+              Living</p>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between border-y border-gray-100 py-4 mb-8">
+            <span class="font-bold text-gray-700 uppercase text-sm tracking-widest">Share this
+              article:</span>
+            <div class="flex gap-3">
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center hover:bg-sky-600 transition"><i
+                  class="fab fa-twitter"></i></a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-blue-800 text-white flex items-center justify-center hover:bg-blue-900 transition"><i
+                  class="fab fa-linkedin-in"></i></a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition"><i
+                  class="fab fa-whatsapp"></i></a>
+              <button onclick="window.print()"
+                class="w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-black transition"
+                title="Print Article">
+                <i class="fas fa-print"></i>
+              </button>
+              <button
+                class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center hover:bg-gray-300 transition"
+                title="Copy Link"><i class="fas fa-link"></i></button>
+            </div>
+          </div>
+
+          <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+            <p
+              class="first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-[#E3000F] first-letter:mr-3 first-letter:float-left">
+              Sustainable architecture is no longer just a trend; it is a necessity for our future. As
+              urbanization grows, the need for spaces that breathe and interact with nature becomes
+              paramount. In this exclusive feature, we explore how top architects in Dhaka are redefining
+              luxury living by integrating green spaces into vertical structures.
+            </p>
+
+            <h3 class="text-2xl font-serif font-bold text-gray-900 mt-8 mb-4">The Integration of Green
+              Spaces</h3>
+            <p class="mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+
+            <blockquote
+              class="border-l-4 border-[#E3000F] pl-4 italic text-xl text-gray-800 my-8 bg-gray-50 py-4 pr-4 rounded-r-lg">
+              "Design is not just what it looks like and feels like. Design is how it works in harmony
+              with the environment."
+            </blockquote>
+
+            <p class="mb-6">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+
+            <h3 class="text-2xl font-serif font-bold text-gray-900 mt-8 mb-4">Material Innovation</h3>
+            <p class="mb-6">
+              Using locally sourced materials such as terracotta and red bricks not only reduces the
+              carbon footprint but also pays homage to the rich history of Bengali architecture.
+            </p>
+
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+              class="w-full rounded-lg my-6 shadow-sm" alt="Detail Shot">
+
+            <p>
+              The final result is a masterpiece that stands the test of time, proving that luxury and
+              sustainability can coexist beautifully.
+            </p>
+          </div>
+
+          <div class="mt-10 pt-6 border-t border-gray-200">
+            <span class="font-bold text-gray-900 mr-2">Tags:</span>
+            <a href="#"
+              class="inline-block bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full hover:bg-[#E3000F] hover:text-white transition mb-2">Architecture</a>
+            <a href="#"
+              class="inline-block bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full hover:bg-[#E3000F] hover:text-white transition mb-2">Dhaka</a>
+            <a href="#"
+              class="inline-block bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full hover:bg-[#E3000F] hover:text-white transition mb-2">Eco-Friendly</a>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-4 space-y-8">
+
+          <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center">
+            <span class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">Advertisement</span>
+            <a href="#" class="block overflow-hidden rounded group">
+              <img src="assets/imgs/Sheltech-Prime-1Mx1M-tiles-ad-400X400px-2024.jpg" alt="Ad 1"
+                class="w-full h-auto object-cover group-hover:opacity-90 transition">
+            </a>
+          </div>
+
+          <div class="sticky top-24">
+            <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center shadow-sm">
+              <span class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">Sponsored</span>
+              <a href="#" class="block overflow-hidden rounded group">
+                <img src="assets/imgs/Subscription-Banner-01-1-scaled.jpg" alt="Ad 2"
+                  class="w-full h-[500px] object-cover group-hover:opacity-90 transition">
+              </a>
+              <button
+                class="mt-4 w-full bg-[#E3000F] text-white py-2 text-sm font-bold uppercase hover:bg-red-700 transition rounded">
+                Visit Partner
+              </button>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="font-serif font-bold text-lg mb-4 border-l-4 border-[#E3000F] pl-3">Most Read
+              </h4>
+              <ul class="space-y-4">
+                <li>
+                  <a href="#" class="group flex gap-3">
+                    <span class="text-3xl font-bold text-gray-200 group-hover:text-[#E3000F]">1</span>
+                    <span class="text-sm font-semibold text-gray-700 group-hover:text-[#E3000F] leading-tight">Top
+                      10 Interior Trends in 2026</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="group flex gap-3">
+                    <span class="text-3xl font-bold text-gray-200 group-hover:text-[#E3000F]">2</span>
+                    <span class="text-sm font-semibold text-gray-700 group-hover:text-[#E3000F] leading-tight">Best
+                      Tiles for Bathroom Renovation</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="mt-16 pt-10 border-t-2 border-gray-100">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="text-2xl font-serif font-bold text-gray-900 border-l-4 border-[#E3000F] pl-4">
+            Related Articles
+          </h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <article class="group flex flex-col h-full">
+            <a href="details.html" class="block overflow-hidden rounded-lg mb-4 h-64 relative">
+              <span
+                class="absolute top-4 left-4 bg-gray-500 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10">Architecture</span>
+              <img
+                src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Article"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </a>
+            <div class="text-center flex-grow">
+              <a href="details.html">
+                <h3
+                  class="text-xl font-serif font-bold mb-3 leading-tight group-hover:text-black transition-colors cursor-pointer">
+                  The evolution of minimal design in modern housing
+                </h3>
+              </a>
+              <p class="text-sm text-gray-500 italic">By Shama Nimkar</p>
+            </div>
+          </article>
+
+          <article class="group flex flex-col h-full">
+            <a href="details.html" class="block overflow-hidden rounded-lg mb-4 h-64 relative">
+              <span
+                class="absolute top-4 left-4 bg-gray-500 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10">Real
+                Estate</span>
+              <img
+                src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Article"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </a>
+            <div class="text-center flex-grow">
+              <a href="details.html">
+                <h3
+                  class="text-xl font-serif font-bold mb-3 leading-tight group-hover:text-black transition-colors cursor-pointer">
+                  Modern Interior Design Trends for 2026
+                </h3>
+              </a>
+              <p class="text-sm text-gray-500 italic">By Tanvir Hasan</p>
+            </div>
+          </article>
+
+          <article class="group flex flex-col h-full">
+            <a href="details.html" class="block overflow-hidden rounded-lg mb-4 h-64 relative">
+              <span
+                class="absolute top-4 left-4 bg-gray-500 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10">Urban</span>
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Article"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </a>
+            <div class="text-center flex-grow">
+              <a href="details.html">
+                <h3
+                  class="text-xl font-serif font-bold mb-3 leading-tight group-hover:text-black transition-colors cursor-pointer">
+                  Transforming small spaces into luxury living
+                </h3>
+              </a>
+              <p class="text-sm text-gray-500 italic">By Emran Masud</p>
+            </div>
+          </article>
+
+          <article class="group flex flex-col h-full">
+            <a href="details.html" class="block overflow-hidden rounded-lg mb-4 h-64 relative">
+              <span
+                class="absolute top-4 left-4 bg-gray-500 text-white text-[10px] font-bold px-2 py-1 uppercase rounded z-10">Decor</span>
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Article"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            </a>
+            <div class="text-center flex-grow">
+              <a href="details.html">
+                <h3
+                  class="text-xl font-serif font-bold mb-3 leading-tight group-hover:text-black transition-colors cursor-pointer">
+                  The art of choosing the right tiles for your home
+                </h3>
+              </a>
+              <p class="text-sm text-gray-500 italic">By Sarah J.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer id="footer-9" class="footer-variant bg-[#F3F4F6] pt-16 pb-12 text-center font-sans">
     <div class="container mx-auto px-4">
@@ -423,10 +521,11 @@
         <p class="text-gray-500 mb-8">
           Subscribe to get our monthly edition and exclusive industry insights directly in your inbox.
         </p>
-        <div class="flex flex-col sm:flex-row shadow-lg rounded-2xl sm:rounded-full overflow-hidden bg-white p-1 gap-2 sm:gap-0">
+        <div
+          class="flex flex-col sm:flex-row shadow-lg rounded-2xl sm:rounded-full overflow-hidden bg-white p-1 gap-2 sm:gap-0">
           <input type="email" placeholder="Enter your email address..."
             class="flex-grow px-6 py-4 sm:py-3 outline-none text-gray-700 text-sm" />
-          
+
           <button
             class="bg-black text-white px-8 py-4 sm:py-3 rounded-xl sm:rounded-full font-bold uppercase text-xs hover:bg-gray-200 hover:text-black transition duration-300 w-full sm:w-auto">
             Subscribe
@@ -440,7 +539,7 @@
         </div>
 
         <div class="relative bg-[#F3F4F6] px-6 flex flex-col md:flex-row items-center gap-6 md:gap-6">
-          
+
           <div class="flex flex-col md:flex-row items-center gap-6">
             <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Presented By</span>
             <img src="assets/imgs/CBM-logo-layer.png" class="h-10 md:h-12 w-auto" alt="CBM" />
@@ -519,69 +618,6 @@
             </button>
           </div>
         </div>
-
-        <div class="p-4 bg-gray-50/50">
-          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <i class="fas fa-shoe-prints"></i> Footer Design
-          </p>
-          <div class="flex flex-col gap-2">
-            <button onclick="switchFooter('footer-1')"
-              class="px-3 py-2 bg-white hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition border border-gray-200 shadow-sm">
-              1. Corporate Light
-            </button>
-
-            <button onclick="switchFooter('footer-2')"
-              class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left transition shadow-sm">
-              2. Modern Dark
-            </button>
-
-            <button onclick="switchFooter('footer-3')"
-              class="px-3 py-2 bg-[#f9f7f2] border hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              3. Editorial Center
-            </button>
-
-            <button onclick="switchFooter('footer-4')"
-              class="px-3 py-2 bg-white border border-l-4 border-l-brand-red hover:bg-gray-50 rounded text-xs font-bold text-left transition shadow-sm">
-              4. Split Layout
-            </button>
-
-            <button onclick="switchFooter('footer-5')"
-              class="px-3 py-2 bg-[#0f172a] text-blue-100 hover:bg-blue-900 rounded text-xs font-bold text-left transition shadow-sm">
-              5. Big Grid (Dark)
-            </button>
-
-            <button onclick="switchFooter('footer-6')"
-              class="px-3 py-2 bg-gray-200 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              6. Boxed Floating
-            </button>
-
-            <button onclick="switchFooter('footer-7')"
-              class="px-3 py-2 bg-white border border-black hover:bg-black hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              7. The "Vogue" Style
-            </button>
-
-            <button onclick="switchFooter('footer-8')"
-              class="px-3 py-2 bg-black text-white hover:bg-gray-800 rounded text-xs font-bold text-left transition shadow-sm">
-              8. Dark Architectural
-            </button>
-
-            <button onclick="switchFooter('footer-9')"
-              class="px-3 py-2 bg-gray-100 hover:bg-brand-red hover:text-white rounded text-xs font-bold text-left transition shadow-sm">
-              9. Centered Elegance
-            </button>
-
-            <button onclick="switchFooter('footer-10')"
-              class="px-3 py-2 bg-white border border-gray-200 hover:bg-gray-50 rounded text-xs font-bold text-left transition shadow-sm">
-              10. Asymmetric Modern
-            </button>
-
-            <button onclick="switchFooter('footer-11')"
-              class="px-3 py-2 bg-brand-red text-white hover:bg-red-800 rounded text-xs font-bold text-left transition shadow-sm">
-              11. Two Tone (Red)
-            </button>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
