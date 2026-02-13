@@ -54,21 +54,35 @@
                 </div>
                 <div class="flex space-x-4">
                     <a href="aboutus.html" class="hover:text-brand-red">About Us</a>
-                    <a href="career.html" class="hover:text-brand-red">Career</a>
+                    <a href="career.html" class="hover:text-brand-red">Write for Us</a>
                 </div>
             </div>
-
             <div class="flex space-x-4 items-center">
-                <span id="current-date" class="text-[10px] uppercase tracking-wide border-r pr-4 border-gray-300">
+                <span id="current-date"
+                    class="text-[10px] uppercase tracking-wide border-r pr-4 border-gray-300 text-gray-600">
                     Loading...
                 </span>
-                <a href="subscribe.html"
-                    class="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-full transition-colors duration-300 font-semibold inline-block">
-                    SUBSCRIBE
-                </a>
+
+                <div class="flex items-center space-x-3">
+                    <a href=""
+                        class="text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-1.5 rounded-full transition-all duration-300 font-semibold text-xs lg:text-sm">
+                        LOGIN
+                    </a>
+
+                    <a href="subscribe.html"
+                        class="bg-black hover:bg-red-600 text-white px-4 py-1.5 rounded-full transition-colors duration-300 font-semibold text-[10px] uppercase">
+                        SUBSCRIBE
+                    </a>
+                </div>
+                <button onclick="openSearch()"
+                    class="pl-2 text-gray-400 hover:text-brand-red transition-all duration-300 transform hover:scale-110 focus:outline-none"
+                    title="Search">
+                    <i class="fas fa-search text-lg"></i>
+                </button>
             </div>
         </div>
     </div>
+
     <header
         class="py-4 md:py-6 border-b-4 border-double border-gray-200 bg-white relative z-30 transition-all duration-300">
         <div id="header-container"
@@ -98,7 +112,7 @@
                 <span id="mobile-date" class="text-[10px] text-gray-500 uppercase"></span>
                 <div class="flex gap-4">
                     <a href="subscribe.html"
-                        class="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-full transition-colors duration-300 font-semibold inline-block">
+                        class="bg-black hover:bg-red-700 text-white px-4 py-1.5 rounded-full transition-colors duration-300 font-semibold inline-block">
                         SUBSCRIBE
                     </a>
                     <button onclick="toggleMenu()" class="text-brand-red text-xl">
@@ -107,7 +121,6 @@
                                 d="M3.333 23.641v-2h13.039v2H3.333Zm0-6.526v-2h6.308v2H3.333Zm0-6.525v-2h6.308v2H3.333Zm23.929 13.077-5.16-5.121a5.86 5.86 0 0 1-1.66.844c-.599.193-1.208.29-1.827.29-1.67 0-3.094-.584-4.272-1.752-1.177-1.167-1.766-2.586-1.766-4.255 0-1.67.589-3.087 1.767-4.255 1.178-1.168 2.603-1.751 4.274-1.751 1.672 0 3.096.583 4.272 1.751 1.176 1.168 1.764 2.584 1.764 4.249 0 .619-.097 1.228-.29 1.827a5.51 5.51 0 0 1-.856 1.647l5.159 5.12-1.405 1.406Zm-8.647-5.988c1.122 0 2.076-.388 2.861-1.166.785-.778 1.178-1.725 1.178-2.84 0-1.115-.393-2.062-1.178-2.84-.785-.777-1.739-1.166-2.86-1.166-1.122 0-2.076.389-2.861 1.166-.785.778-1.178 1.725-1.178 2.84 0 1.115.393 2.062 1.178 2.84.785.777 1.739 1.166 2.86 1.166Z"
                                 fill="#0D0D0D"></path>
                         </svg>
-
                     </button>
                 </div>
             </div>
@@ -118,7 +131,6 @@
         class="hidden md:block bg-white shadow-sm sticky top-0 z-40 transition-all duration-300 border-b border-transparent">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-14 lg:h-20">
-
                 <div id="sticky-logo" class="hidden opacity-0 transition-opacity duration-300">
                     <a href="index.html">
                         <img src="assets/imgs/CBM-logo-layer.png" alt="Logo" class="h-10 lg:h-16 w-auto" />
@@ -132,47 +144,66 @@
                     </li>
                     <li class="relative group">
                         <a href="articles.html" class="hover:text-brand-red transition flex items-center gap-1">
-                            Articles <i
+                            Articles
+                            <i
                                 class="fas fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"></i>
                         </a>
 
                         <ul
                             class="absolute left-0 mt-5 w-48 bg-white shadow-xl border-t-2 border-brand-red py-2 opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50">
-                            <li><a href="#"
+                            <li>
+                                <a href="#"
                                     class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-red transition text-xs">Politics</a>
                             </li>
-                            <li><a href="#"
+                            <li>
+                                <a href="#"
                                     class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-red transition text-xs">Business</a>
                             </li>
-                            <li><a href="#"
+                            <li>
+                                <a href="#"
                                     class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-red transition text-xs">Technology</a>
                             </li>
-                            <li><a href="#"
+                            <li>
+                                <a href="#"
                                     class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-red transition text-xs">Lifestyle</a>
                             </li>
-                            <li><a href="#"
+                            <li>
+                                <a href="#"
                                     class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-red transition text-xs">Environment</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="e-Magazine.html" class="hover:text-brand-red font-bold transition">e-Magazine</a></li>
-                    <li><a href="issues.html" class="hover:text-brand-red transition">Archive</a></li>
-                    <li><a href="articles.html" class="hover:text-brand-red transition">Associates</a></li>
-
-                    <li class="lowercase">
-                        <div class="relative group cursor-pointer w-40 lg:w-56" onclick="openSearch()">
-                            <input type="text" placeholder="Search..." readonly
-                                class="w-full bg-gray-100 border border-gray-200 rounded-lg py-1.5 px-3 focus:outline-none cursor-pointer text-xs">
-                            <i
-                                class="fas fa-search absolute right-3 top-2 text-gray-400 group-hover:text-brand-red"></i>
-                        </div>
+                    <li>
+                        <a href="e-Magazine.html" class="hover:text-brand-red font-bold transition">e-Magazine</a>
                     </li>
+                    <li>
+                        <a href="issues.html" class="hover:text-brand-red transition">Archive</a>
+                    </li>
+                    <li>
+                        <a href="articles.html" class="hover:text-brand-red transition">Associates</a>
+                    </li>
+                    <li>
+                        <a href="articles.html" class="hover:text-brand-red transition">Blog</a>
+                    </li>
+
+                    <!-- <li class="lowercase">
+            <div class="relative group cursor-pointer w-40 lg:w-56" onclick="openSearch()">
+              <input type="text" placeholder="Search..." readonly
+                class="w-full bg-gray-100 border border-gray-200 rounded-lg py-1.5 px-3 focus:outline-none cursor-pointer text-xs">
+              <i class="fas fa-search absolute right-3 top-2 text-gray-400 group-hover:text-brand-red"></i>
+            </div>
+          </li> -->
                 </ul>
 
                 <div class="flex items-center gap-3">
                     <a id="sticky-subscribe" href="subscribe.html"
-                        class="hidden bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-full transition-all duration-300 font-semibold text-xs lg:text-sm">
+                        class="hidden bg-black hover:bg-red-700 text-white px-4 py-1.5 rounded-full transition-all duration-300 font-semibold text-xs lg:text-sm">
                         SUBSCRIBE
+                    </a>
+                    <!-- <a href="">Login</a> -->
+                    <a href="" id="sticky-login"
+                        class="hidden text-gray-700 hover:text-red-600 border border-gray-300 hover:border-red-600 px-4 py-1.5 rounded-full transition-all duration-300 font-semibold text-xs lg:text-sm">
+                        LOGIN
                     </a>
 
                     <button id="hamburger-btn" onclick="toggleMenu()"
@@ -205,7 +236,7 @@
         <div class="mb-6 px-1">
             <div class="relative group cursor-pointer" onclick="openSearch()">
                 <input type="text" placeholder="Search here..." readonly
-                    class="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 px-4 focus:outline-none cursor-pointer text-sm">
+                    class="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 px-4 focus:outline-none cursor-pointer text-sm" />
                 <i class="fas fa-search absolute right-3 top-2.5 text-gray-400 group-hover:text-brand-red"></i>
             </div>
         </div>
@@ -215,16 +246,22 @@
                     class="block text-brand-red font-bold transition-all border-b border-gray-50 pb-2">Home</a>
             </li>
             <li>
-                <button
-                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
-                    class="w-full flex justify-between items-center hover:text-brand-red transition-all border-b border-gray-50 pb-2">
+                <button onclick="
+              this.nextElementSibling.classList.toggle('hidden');
+              this.querySelector('i').classList.toggle('rotate-180');
+            " class="w-full flex justify-between items-center hover:text-brand-red transition-all border-b border-gray-50 pb-2">
                     <span>Articles</span>
                     <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
                 <ul class="hidden bg-gray-50 mt-2 rounded-md overflow-hidden">
-                    <li><a href="#" class="block px-6 py-2 text-sm text-gray-600 hover:text-brand-red">Politics</a></li>
-                    <li><a href="#" class="block px-6 py-2 text-sm text-gray-600 hover:text-brand-red">Business</a></li>
-                    <li><a href="#" class="block px-6 py-2 text-sm text-gray-600 hover:text-brand-red">Technology</a>
+                    <li>
+                        <a href="#" class="block px-6 py-2 text-sm text-gray-600 hover:text-brand-red">Politics</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-6 py-2 text-sm text-gray-600 hover:text-brand-red">Business</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-6 py-2 text-sm text-gray-600 hover:text-brand-red">Technology</a>
                     </li>
                 </ul>
             </li>
@@ -241,13 +278,17 @@
                     class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Associates</a>
             </li>
             <li>
+                <a href="#" class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Blog</a>
+            </li>
+            <li>
                 <a href="aboutus.html"
                     class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">About
                     Us</a>
             </li>
             <li>
                 <a href="career.html"
-                    class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Career</a>
+                    class="block hover:text-brand-red transition-all border-b border-gray-50 pb-2">Write For
+                    Us</a>
             </li>
         </ul>
 
@@ -499,78 +540,89 @@
     </section>
 
 
-  <footer id="footer-9" class="footer-variant bg-[#F3F4F6] pt-16 pb-12 text-center font-sans">
-    <div class="container mx-auto px-4">
-      <div class="max-w-2xl mx-auto mb-12">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Inside the Industry
-        </h2>
-        <p class="text-gray-500 mb-8">
-          Subscribe to get our monthly edition and exclusive industry insights directly in your inbox.
-        </p>
-        <div class="flex flex-col sm:flex-row shadow-lg rounded-2xl sm:rounded-full overflow-hidden bg-white p-1 gap-2 sm:gap-0">
-          <input type="email" placeholder="Enter your email address..."
-            class="flex-grow px-6 py-4 sm:py-3 outline-none text-gray-700 text-sm" />
-          
-          <button
-            class="bg-black text-white px-8 py-4 sm:py-3 rounded-xl sm:rounded-full font-bold uppercase text-xs hover:bg-gray-200 hover:text-black transition duration-300 w-full sm:w-auto">
-            Subscribe
-          </button>
+
+    <footer class="footer-variant bg-[#F3F4F6] pt-10 pb-8 text-center font-sans">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto mb-10">
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    Inside the Industry
+                </h2>
+                <p class="text-gray-500 mb-6 text-sm">
+                    Subscribe to get our monthly edition and exclusive industry insights directly in your inbox.
+                </p>
+                <div
+                    class="flex flex-col sm:flex-row shadow-md rounded-2xl sm:rounded-full overflow-hidden bg-white p-1 gap-2 sm:gap-0">
+                    <input type="email" placeholder="Enter your email address..."
+                        class="flex-grow px-6 py-3 outline-none text-gray-700 text-sm" />
+                    <button
+                        class="bg-black text-white px-8 py-3 rounded-xl sm:rounded-full font-bold uppercase text-xs hover:bg-gray-800 transition duration-300 w-full sm:w-auto">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col items-center mb-6">
+                <div class="absolute inset-x-0 top-4 md:top-5 flex items-center hidden md:flex">
+                    <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex flex-col items-center gap-4">
+                    <div class="bg-[#F3F4F6] px-4">
+                        <img src="assets/imgs/CBM-logo-layer.png" class="h-8 md:h-10 w-auto" alt="CBM" />
+                    </div>
+                    <div class="flex flex-col items-center gap-1">
+                        <span class="text-[8px] uppercase tracking-widest text-gray-400 font-bold">Supported By</span>
+                        <img src="bcmea-logo.webp" class="h-8 md:h-12 w-auto" alt="BCMEA" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 mb-6">
+                <div class="flex flex-wrap justify-center items-center gap-2 md:gap-0 text-gray-800">
+                    <div class="px-4 border-r-0 md:border-r border-gray-300 last:border-r-0">
+                        <p class="text-[10px] md:text-sm font-bold">
+                            Chief Editor: <span class="font-normal ml-1">Irfan Uddin</span>
+                        </p>
+                    </div>
+                    <div class="px-4 border-r-0 md:border-r border-gray-300 last:border-r-0">
+                        <p class="text-[10px] md:text-sm font-bold">
+                            Editor: <span class="font-normal ml-1">Anwar Haq</span>
+                        </p>
+                    </div>
+                    <div class="px-4">
+                        <p class="text-[10px] md:text-sm font-bold">
+                            Publisher: <span class="font-normal ml-1">Zahedi hassan Chowdhury</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-wrap justify-center gap-6 md:gap-8 mb-6 font-bold text-xs text-gray-800 uppercase tracking-wide">
+                <a href="issues.html" class="hover:text-red-600 transition">Archive</a>
+                <a href="aboutus.html" class="hover:text-red-600 transition">About</a>
+                <a href="career.html" class="hover:text-red-600 transition">Write for Us</a>
+            </div>
+
+            <div class="flex justify-center gap-3 mb-6">
+                <a href="#"
+                    class="w-8 h-8 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all text-xs"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="#"
+                    class="w-8 h-8 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-pink-600 hover:text-white transition-all text-xs"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="#"
+                    class="w-8 h-8 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white transition-all text-xs"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="#"
+                    class="w-8 h-8 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-500 hover:text-white transition-all text-xs"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+
+            <p class="text-[10px] text-gray-400">
+                &copy; 2026 Ceramic Bangladesh. Designed by Professionals.
+            </p>
         </div>
-      </div>
-
-      <div class="relative flex items-center justify-center mb-12">
-        <div class="absolute inset-0 flex items-center hidden md:flex">
-          <div class="w-full border-t border-gray-300"></div>
-        </div>
-
-        <div class="relative bg-[#F3F4F6] px-6 flex flex-col md:flex-row items-center gap-6 md:gap-6">
-          
-          <div class="flex flex-col md:flex-row items-center gap-6">
-            <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Presented By</span>
-            <img src="assets/imgs/CBM-logo-layer.png" class="h-10 md:h-12 w-auto" alt="CBM" />
-          </div>
-
-          <div class="flex flex-col items-center sm:block hidden">
-            <span class="text-gray-300 text-2xl leading-none">||</span>
-          </div>
-
-          <div class="flex flex-col md:flex-row items-center gap-6">
-            <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Supported By</span>
-            <img src="bcmea-logo.webp" class="h-10 md:h-16 w-auto" alt="BCMEA" />
-          </div>
-
-        </div>
-      </div>
-      <div
-        class="flex flex-wrap justify-center gap-6 md:gap-12 mb-10 font-bold text-sm text-gray-800 uppercase tracking-wide">
-        <a href="#" class="hover:text-brand-red transition">Home</a>
-        <a href="#" class="hover:text-brand-red transition">Articles</a>
-        <a href="#" class="hover:text-brand-red transition">Events</a>
-        <a href="#" class="hover:text-brand-red transition">About</a>
-        <a href="#" class="hover:text-brand-red transition">Contact</a>
-      </div>
-
-      <div class="flex justify-center gap-4 mb-8">
-        <a href="#"
-          class="w-10 h-10 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white hover:-translate-y-1 transition-all"><i
-            class="fab fa-facebook-f"></i></a>
-        <a href="#"
-          class="w-10 h-10 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-pink-600 hover:text-white hover:-translate-y-1 transition-all"><i
-            class="fab fa-instagram"></i></a>
-        <a href="#"
-          class="w-10 h-10 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-red-600 hover:text-white hover:-translate-y-1 transition-all"><i
-            class="fab fa-youtube"></i></a>
-        <a href="#"
-          class="w-10 h-10 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-500 hover:text-white hover:-translate-y-1 transition-all"><i
-            class="fab fa-linkedin-in"></i></a>
-      </div>
-
-      <p class="text-xs text-gray-400">
-        &copy; 2026 Ceramic Bangladesh. Designed by Professionals.
-      </p>
-    </div>
-  </footer>
+    </footer>
 
     <!-- layout setting panel start -->
     <div id="settings-panel"

@@ -168,14 +168,37 @@ document.addEventListener("keydown", function (event) {
 });
 
 // 1. Initialize 3D Effect Slider
+// const ceramicSwiper = new Swiper(".ceramicBangladeshSlider", {
+//   effect: "coverflow",
+//   grabCursor: true,
+//   centeredSlides: false,
+//   slidesPerView: 3,
+//   loop: true,
+//   coverflowEffect: {
+//     rotate: -35,
+//     stretch: 30,
+//     depth: 100,
+//     modifier: 1,
+//     slideShadows: false,
+//   },
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//   },
+//   navigation: {
+//     nextEl: ".swiper-button-next",
+//     prevEl: ".swiper-button-prev",
+//   },
+// });
+
 const ceramicSwiper = new Swiper(".ceramicBangladeshSlider", {
   effect: "coverflow",
   grabCursor: true,
-  centeredSlides: false,
+  centeredSlides: false, // 3D effect er jonno true rakha bhalo
   slidesPerView: 3,
   loop: true,
   coverflowEffect: {
-    rotate: -35,
+    rotate: -32, // Responsive e rotate kom thaka clean dekhay
     stretch: 30,
     depth: 100,
     modifier: 1,
@@ -189,6 +212,24 @@ const ceramicSwiper = new Swiper(".ceramicBangladeshSlider", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  // Responsive Breakpoints
+  breakpoints: {
+    // Mobile (Portrait)
+    320: {
+      slidesPerView: 1, // Halka side slide dekha jabe
+      // spaceBetween: 20
+    },
+    // Tablet
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30
+    },
+    // Desktop
+    1024: {
+      slidesPerView: 3,
+      // spaceBetween: 40
+    }
+  }
 });
 
 
