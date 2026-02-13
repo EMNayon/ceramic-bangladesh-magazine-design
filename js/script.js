@@ -57,7 +57,6 @@ function setHeaderLayout(type) {
     logoWrapper.classList.add("w-1/3", "justify-start");
   }
 }
-
 // SCROLL & MENU LOGIC
 const stickyNav = document.getElementById("sticky-nav");
 const stickyLogo = document.getElementById("sticky-logo");
@@ -66,9 +65,9 @@ const hamburgerBtn = document.getElementById("hamburger-btn");
 const drawer = document.getElementById("side-drawer");
 const overlay = document.getElementById("mobile-menu-overlay");
 const stickySubscribe = document.getElementById("sticky-subscribe");
+const stickyLogin = document.getElementById('sticky-login'); // Notun add
 
 window.addEventListener("scroll", () => {
-  const stickyNav = document.getElementById("sticky-nav");
   const isMobile = window.innerWidth < 768; // Mobile check
 
   if (window.scrollY > 160) {
@@ -81,13 +80,18 @@ window.addEventListener("scroll", () => {
     desktopMenu.classList.add("hidden");
     hamburgerBtn.classList.remove("hidden");
 
+    // Scroll e Login & Subscribe dekhabe
     if (stickySubscribe) {
       stickySubscribe.classList.remove("hidden");
       stickySubscribe.classList.add("inline-block");
     }
+    if (stickyLogin) {
+      stickyLogin.classList.remove("hidden");
+      stickyLogin.classList.add("inline-block");
+    }
+    
   } else {
-    // Scroll 160 er niche gele Mobile e purapuri hide thakbe
-    // Desktop e abar menu fire ashbe
+    // Scroll 160 er niche gele logic
     if (isMobile) {
       stickyNav.classList.add("hidden");
     } else {
@@ -98,9 +102,14 @@ window.addEventListener("scroll", () => {
       hamburgerBtn.classList.add("hidden");
     }
 
+    // Scroll up korle Login & Subscribe hide hobe
     if (stickySubscribe) {
       stickySubscribe.classList.add("hidden");
       stickySubscribe.classList.remove("inline-block");
+    }
+    if (stickyLogin) {
+      stickyLogin.classList.add("hidden");
+      stickyLogin.classList.remove("inline-block");
     }
   }
 });
@@ -159,29 +168,29 @@ document.addEventListener("keydown", function (event) {
 });
 
 // 1. Initialize 3D Effect Slider
-    const ceramicSwiper = new Swiper(".ceramicBangladeshSlider", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: false,
-      slidesPerView: 3, 
-      loop: true,
-      coverflowEffect: {
-        rotate: -35,
-        stretch: 30,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  
+const ceramicSwiper = new Swiper(".ceramicBangladeshSlider", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: false,
+  slidesPerView: 3,
+  loop: true,
+  coverflowEffect: {
+    rotate: -35,
+    stretch: 30,
+    depth: 100,
+    modifier: 1,
+    slideShadows: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 
 // 2. Initialize Partner Slider (Carousel)
 const partnerSwiper = new Swiper(".partnerSwiper", {
