@@ -88,7 +88,8 @@
       class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:h-28 gap-4 md:gap-0 transition-all duration-500">
       <div id="main-logo-wrapper"
         class="w-full md:w-1/3 flex justify-center md:justify-center transition-all duration-500 order-1">
-        <img src="assets/imgs/CBM-logo-layer.png" alt="Logo" class="w-40 md:w-56" />
+        <!-- <img src="assets/imgs/CBM-logo-layer.png" alt="Logo" class="w-40 md:w-56" /> -->
+        <img id="dynamic-logo" src="assets/logo/SBM.png" alt="Logo" class="w-40 md:w-56 object-contain" />
       </div>
 
       <div id="header-ads-wrapper" class="w-full md:w-2/3 hidden md:block transition-all duration-500 order-2">
@@ -129,7 +130,8 @@
       <div class="flex items-center justify-between h-14 lg:h-20">
         <div id="sticky-logo" class="hidden opacity-0 transition-opacity duration-300">
           <a href="index.html">
-            <img src="assets/imgs/CBM-logo-layer.png" alt="Logo" class="h-10 lg:h-16 w-auto" />
+            <!-- <img src="assets/imgs/CBM-logo-layer.png" alt="Logo" class="h-10 lg:h-16 w-auto" /> -->
+             <img id="dynamic-sticky-logo" src="assets/logo/SBM.png" alt="Logo" class="h-10 lg:h-20 w-auto" />
           </a>
         </div>
 
@@ -1618,7 +1620,7 @@
       </div>
     </div>
   </section>
-  
+
   <footer class="footer-variant bg-[#F3F4F6] pt-10 pb-8 text-center font-sans">
     <div class="container mx-auto px-4">
       <div class="max-w-2xl mx-auto mb-10">
@@ -1716,6 +1718,22 @@
     <div id="settings-content"
       class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out bg-white rounded-b-xl">
       <div class="max-h-[500px] overflow-y-auto custom-scrollbar">
+
+        <div>
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3"><i class="fas fa-image"></i>
+            Select Brand Logo</p>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="changeLogo('assets/logo/SBM.png')"
+              class="p-2 border rounded hover:bg-gray-50 text-[10px] font-bold truncate">SBM (Default)</button>
+            <button onclick="changeLogo('assets/logo/With-Magazine.png')"
+              class="p-2 border rounded hover:bg-gray-50 text-[10px] font-bold truncate">With Magazine</button>
+            <button onclick="changeLogo('assets/logo/Without-Tag-Line.png')"
+              class="p-2 border rounded hover:bg-gray-50 text-[10px] font-bold truncate">No Tagline</button>
+            <button onclick="changeLogo('assets/logo/With-Tag-Line.png')"
+              class="p-2 border rounded hover:bg-gray-50 text-[10px] font-bold truncate">Full Logo</button>
+          </div>
+        </div>
+
         <div class="p-4 border-b border-gray-100">
           <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
             <i class="fas fa-heading"></i> Header Style
@@ -1878,10 +1896,15 @@
     }
   </script>
 
+  <script>
+    function changeLogo(logoPath) {
+      document.getElementById('dynamic-logo').src = logoPath;
+      document.getElementById('dynamic-sticky-logo').src = logoPath;
+    }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
-  <!-- <script src="js/flipbook.js"></script> -->
-  <script></script>
 </body>
 
 </html>
